@@ -170,7 +170,7 @@ a {
   flex-shrink: 0;
   opacity: 1;
   transform: translateX(0);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, width 0.4s ease, margin 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.3s ease;
   will-change: transform, opacity;
 }
 
@@ -185,11 +185,9 @@ a {
 }
 
 .site-header.scrolled .logo-text-img {
-  transform: translateX(-30px);
+  transform: translateX(-35px);
   opacity: 0;
   pointer-events: none;
-  width: 0;
-  margin-left: -12px;
 }
 
 .site-header.scrolled .logo-emblem-img {
@@ -866,11 +864,18 @@ a {
 .flavor-card-footer,
 .card-price-action-row {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.65rem;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(0, 79, 104, 0.1);
-  gap: 0.5rem;
+  width: 100%;
+}
+
+.card-footer-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .flavor-card-price,
@@ -883,17 +888,20 @@ a {
 .card-btns-group {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
+  width: 100%;
 }
 
 .card-btn-quick-add {
+  flex: 1;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.35rem;
   background: var(--petroleum-blue);
   color: var(--bg-sand);
   border: 1px solid var(--petroleum-blue);
-  padding: 0.45rem 0.75rem;
+  padding: 0.45rem 0.5rem;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
   font-weight: 700;
@@ -909,15 +917,17 @@ a {
 }
 
 .card-btn-build-box {
+  flex: 1;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.35rem;
   background: var(--bg-sand-light);
   color: var(--petroleum-blue);
   border: 1.5px solid var(--petroleum-blue);
-  padding: 0.42rem 0.75rem;
+  padding: 0.42rem 0.5rem;
   border-radius: var(--radius-full);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
   transition: var(--transition-fast);
   cursor: pointer;

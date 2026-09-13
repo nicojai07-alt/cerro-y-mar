@@ -482,7 +482,12 @@
           <h3 class="card-title-text flavor-card-title">${p.name}</h3>
           <p class="card-desc-snippet flavor-card-desc">${p.description}</p>
           <div class="card-price-action-row flavor-card-footer">
-            <span class="card-price-amount flavor-card-price">${formatCurrency(p.price)}</span>
+            <div class="card-footer-top-row">
+              <span class="card-price-amount flavor-card-price">${formatCurrency(p.price)}</span>
+              <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
             <div class="card-btns-group">
               <button class="card-btn-quick-add" title="Agregar al carrito" onclick="event.stopPropagation(); app.quickAddToCart('${p.id}')">
                 <i class="fa-solid fa-bag-shopping"></i>
@@ -491,9 +496,6 @@
               <button class="card-btn-build-box" title="Armar caja con este alfajor" onclick="event.stopPropagation(); app.startBoxWithFlavor('${p.id}')">
                 <i class="fa-solid fa-boxes-stacked"></i>
                 <span>Armar caja</span>
-              </button>
-              <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
-                <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
           </div>
@@ -523,11 +525,16 @@
           <h3 class="card-title-text flavor-card-title">${p.name}</h3>
           <p class="card-desc-snippet flavor-card-desc">${p.description}</p>
           <div class="card-price-action-row flavor-card-footer">
-            <span class="card-price-amount flavor-card-price">${formatCurrency(p.price)}</span>
+            <div class="card-footer-top-row">
+              <span class="card-price-amount flavor-card-price">${formatCurrency(p.price)}</span>
+              <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
             <div class="card-btns-group">
               <button class="card-btn-quick-add" title="${p.category === 'combos' ? 'Comprar caja' : 'Agregar al carrito'}" onclick="event.stopPropagation(); app.quickAddToCart('${p.id}')">
                 <i class="fa-solid fa-bag-shopping"></i>
-                <span>${p.category === 'combos' ? 'Comprar' : 'Agregar'}</span>
+                <span>${p.category === 'combos' ? 'Comprar caja' : 'Agregar'}</span>
               </button>
               ${p.category !== 'combos' ? `
               <button class="card-btn-build-box" title="Armar caja con este alfajor" onclick="event.stopPropagation(); app.startBoxWithFlavor('${p.id}')">
@@ -535,9 +542,6 @@
                 <span>Armar caja</span>
               </button>
               ` : ''}
-              <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
             </div>
           </div>
         </div>
@@ -560,14 +564,16 @@
           <h3 class="card-title-text flavor-card-title">${b.name}</h3>
           <p class="card-desc-snippet flavor-card-desc">${b.description}</p>
           <div class="card-price-action-row flavor-card-footer">
-            <span class="card-price-amount flavor-card-price">${formatCurrency(b.price)}</span>
-            <div class="card-btns-group">
-              <button class="card-btn-quick-add" title="Comprar caja" onclick="event.stopPropagation(); app.quickAddToCart('${b.id}')">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <span>Comprar</span>
-              </button>
+            <div class="card-footer-top-row">
+              <span class="card-price-amount flavor-card-price">${formatCurrency(b.price)}</span>
               <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${b.id}')">
                 <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="card-btns-group">
+              <button class="card-btn-quick-add" title="Comprar caja" onclick="event.stopPropagation(); app.quickAddToCart('${b.id}')" style="width:100%;">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Comprar caja</span>
               </button>
             </div>
           </div>
