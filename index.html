@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cerro y Mar | Alfajores de Autor - Patagonia Argentina</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Tradición artesanal: un viaje de sabores en cada bocado. Alfajores de autor elaborados en la Patagonia.">
+  <meta property="og:title" content="Cerro y Mar | Alfajores de Autor">
+  <meta property="og:description" content="Sabores de autor creados para transformar cada bocado en una experiencia especial.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Montserrat (Bold 700, ExtraBold 800, Medium 500) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================= SITE HEADER & NAVIGATION ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      
+      <!-- Brand Logo (Dynamic Scroll Shrink: logo 1 initial, logo 2 scrolled) -->
+      <a href="#inicio" class="brand-link" aria-label="Cerro y Mar - Inicio">
+        <img src="logo 1.jpeg" alt="Cerro y Mar - Alfajores de Autor" class="brand-header-logo logo-initial">
+        <img src="logo 2.jpeg" alt="Cerro y Mar - Alfajores de Autor" class="brand-header-logo logo-scrolled">
+      </a>
+
+      <!-- Primary Navigation Links (Wireframe layout) -->
+      <nav class="main-navigation" aria-label="Menú principal">
+        <ul class="nav-menu">
+          <li><a href="#catalogo" class="nav-item">Catálogo</a></li>
+          <li><a href="#cajas-premium" class="nav-item">Premium</a></li>
+          <li><a href="#nosotros" class="nav-item">Nosotros</a></li>
+          <li><a href="#contacto" class="nav-item">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Utility Header Actions (Search, Cart, User) -->
+      <div class="header-utilities">
+        
+        <!-- Live Search Input -->
+        <div class="header-search-wrap">
+          <i class="fa-solid fa-magnifying-glass search-trigger-icon"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="header-search-input" 
+            placeholder="Buscar sabor..." 
+            autocomplete="off"
+            aria-label="Buscar productos"
+          >
+          <button id="clearSearchBtn" class="clear-search-btn" title="Borrar búsqueda" style="display:none;">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <!-- Custom Box Builder Quick Trigger -->
+        <button class="btn-custom-box-header" onclick="app.openCustomBoxModal()" title="Armá tu caja de autor personalizada">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span class="btn-box-text">Armar Caja</span>
+        </button>
+
+        <!-- User Authentication Icon -->
+        <button id="openAuthModalBtn" class="utility-icon-btn" title="Mi Cuenta" onclick="app.openAuthModal()">
+          <i class="fa-regular fa-user"></i>
+          <span id="authBtnText" class="user-status-text">Ingresar</span>
+        </button>
+
+        <!-- Cart Trigger with Dynamic Badge -->
+        <button id="openCartBtn" class="utility-icon-btn cart-trigger-btn" aria-label="Ver carrito">
+          <div class="cart-icon-wrap">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span id="cartCountBadge" class="cart-badge-count">0</span>
+          </div>
+          <span id="cartTotalHeader" class="cart-header-val">$ 0</span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION (WIREFRAME HOME) ================= -->
+  <section class="hero-editorial-section" id="inicio">
+    <div class="container hero-editorial-grid">
+      
+      <!-- Text & Value Prop -->
+      <div class="hero-editorial-text">
+        <span class="editorial-eyebrow">Patagonia Argentina · Edición de Autor</span>
+        <h1 class="hero-headline">Tradición artesanal:<br>un viaje de sabores<br>en cada bocado</h1>
+        <p class="hero-subtext">
+          Más de 14 creaciones exclusivas elaboradas en lotes reducidos con chocolate belga genuino, dulce de leche repostero de textura sedosa y frutos silvestres de nuestra tierra.
+        </p>
+        <div class="hero-actions-group">
+          <a href="#catalogo" class="btn-solid-primary">
+            <span>Ver Catálogo</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <button class="btn-outline-primary" onclick="app.openCustomBoxModal()">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Armar Caja a Medida</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hero Visual Art Card -->
+      <div class="hero-editorial-visual">
+        <div class="editorial-card-wrapper">
+          <div class="editorial-pattern-overlay"></div>
+          <div class="editorial-badge">
+            <i class="fa-solid fa-cookie"></i> 100% Sin Conservantes
+          </div>
+          <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80" alt="Alfajor artesanal de autor" class="editorial-main-image">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SECCIÓN: NUESTROS SABORES DESTACADOS ================= -->
+  <section class="section-featured-flavors">
+    <div class="container">
+      
+      <div class="section-editorial-header">
+        <h2 class="section-editorial-title">Nuestros sabores destacados</h2>
+        <p class="section-editorial-subtitle">Los cuatro favoritos que definen la excelencia de nuestra pastelería de autor.</p>
+      </div>
+
+      <div class="featured-flavors-grid" id="featuredGrid">
+        <!-- Injected via app.js: Oro Negro, Dubai, Calafate, Frambuespecial -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= BANNER DE ALTO CONTRASTE: DÍA ESPECIAL ================= -->
+  <section class="section-contrast-banner">
+    <div class="container">
+      <div class="contrast-banner-card">
+        <div class="contrast-banner-content">
+          <div class="contrast-text-group">
+            <h2 class="contrast-banner-title">Hacé tu pedido para un dia especial</h2>
+            <p class="contrast-banner-desc">Te asesoramos y te ayudamos a elegir la mejor opción para agasajos, regalos empresariales y cumpleaños.</p>
+          </div>
+          <div class="contrast-action-group">
+            <a href="https://wa.me/5492975928775?text=Hola%20Cerro%20y%20Mar,%20quiero%20hacer%20un%20pedido%20especial!" target="_blank" rel="noopener" class="btn-contrast-action">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Contactanos</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECCIÓN: NUESTRA HISTORIA ================= -->
+  <section class="section-brand-story" id="nosotros">
+    <div class="container story-inner-container">
+      <div class="story-center-card">
+        <span class="story-eyebrow">Nuestra Historia</span>
+        <h2 class="story-quote-title">
+          "Sabores de autor creados para transformar cada bocado en una experiencia especial."
+        </h2>
+        <p class="story-body-text">
+          Nacimos frente al mar y al pie de los cerros en Comodoro Rivadavia con un propósito claro: elevar el alfajor artesanal a una categoría de alta repostería. Cada receta equilibra materias primas nobles de la Patagonia, sin aditivos ni procesos industriales.
+        </p>
+        <div class="story-actions">
+          <button class="btn-solid-primary" onclick="app.openStoryModal()">
+            <span>Conocer Más</span>
+            <i class="fa-solid fa-book-open"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECCIÓN: CATÁLOGO DE SABORES (WIREFRAME) ================= -->
+  <main class="section-main-catalog" id="catalogo">
+    <div class="container">
+      
+      <!-- Section Header with Sorting Dropdown -->
+      <div class="catalog-header-bar">
+        <div>
+          <h2 class="catalog-section-title">Catálogo de sabores</h2>
+          <p class="catalog-section-desc">Descubrí las 14 variedades individuales de alfajores de autor.</p>
+        </div>
+
+        <div class="catalog-sort-group">
+          <label for="catalogSortSelect" class="sort-label">Ordenar por:</label>
+          <select id="catalogSortSelect" class="catalog-sort-select" onchange="app.handleSortChange(this.value)">
+            <option value="default">Recomendados</option>
+            <option value="price-asc">Menor precio</option>
+            <option value="price-desc">Mayor precio</option>
+            <option value="name-asc">Nombre (A - Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Filter Pill Tabs (All, Clásicos, Patagónicos, Especiales, Argentos, Veganos, Gluten Free, Plant Based) -->
+      <div class="catalog-filter-tabs-wrap">
+        <nav class="catalog-pills-nav" aria-label="Filtro de categorías">
+          <button class="filter-pill-btn active" data-category="all">Todos (<span class="pill-count" id="countAll">14</span>)</button>
+          <button class="filter-pill-btn" data-category="clasicos">Clásicos (<span class="pill-count" id="countClasicos">5</span>)</button>
+          <button class="filter-pill-btn" data-category="patagonicos">Patagónicos (<span class="pill-count" id="countPatagonicos">4</span>)</button>
+          <button class="filter-pill-btn" data-category="especiales">Especiales (<span class="pill-count" id="countEspeciales">12</span>)</button>
+          <button class="filter-pill-btn" data-category="argentos">Argentos (<span class="pill-count" id="countArgentos">7</span>)</button>
+          <button class="filter-pill-btn" data-category="veganos">Veganos (<span class="pill-count" id="countVeganos">2</span>)</button>
+          <button class="filter-pill-btn" data-category="glutenfree">Gluten Free (<span class="pill-count" id="countGlutenfree">2</span>)</button>
+          <button class="filter-pill-btn" data-category="plantbased">Plant Based (<span class="pill-count" id="countPlantbased">2</span>)</button>
+        </nav>
+      </div>
+
+      <!-- Active Filter Feedback -->
+      <div id="filterStatus" class="filter-feedback-row" style="display:none;">
+        <span id="filterStatusText">Mostrando resultados</span>
+        <button id="resetFiltersBtn" class="btn-reset-filters" onclick="app.resetSearch()">Restablecer filtros</button>
+      </div>
+
+      <!-- 4-Column Responsive Grid of Flavors (Wireframe layout) -->
+      <div class="flavors-catalog-grid" id="productsGrid">
+        <!-- Injected via app.js: 12+ items (Licor Dulce, Vino, Comodorense, Sal Marina, Dubai, Oreo, Chocovegan, Fernet, Frutos Rojos, Oro Negro, Marroc, Integral) -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyCatalogState" class="empty-catalog-box" style="display: none;">
+        <div class="empty-art-icon"><i class="fa-solid fa-cookie-bite"></i></div>
+        <h3>No encontramos coincidencias</h3>
+        <p>Probá buscando por ingredientes como "pistacho", "malbec", "vegano" o "frambuesa".</p>
+        <button class="btn-solid-primary" onclick="app.resetSearch()">Ver todos los sabores</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= SECCIÓN: CAJAS PREMIUM ================= -->
+  <section class="section-premium-boxes" id="cajas-premium">
+    <div class="container">
+      
+      <div class="catalog-header-bar">
+        <div>
+          <h2 class="catalog-section-title">Cajas Premium</h2>
+          <p class="catalog-section-desc">Presentaciones de regalo, degustación y cajas personalizadas.</p>
+        </div>
+      </div>
+
+      <!-- Premium Boxes Grid -->
+      <div class="premium-boxes-grid" id="premiumBoxesGrid">
+        <!-- Injected via app.js: Cajas Especiales, Patagónicas, Argento, Plant Based, etc. -->
+      </div>
+
+      <!-- Box Builder Interactive CTA Banner -->
+      <div class="custom-box-builder-cta-banner">
+        <div class="builder-cta-text">
+          <span class="builder-cta-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Experiencia a Medida</span>
+          <h3>¿Preferís armar tu propia caja con sabores personalizados?</h3>
+          <p>Elegí entre cajas de 3, 6 o 12 unidades y combiná las variedades que más te gusten.</p>
+        </div>
+        <button class="btn-solid-primary-inverse" onclick="app.openCustomBoxModal()">
+          <i class="fa-solid fa-boxes-packing"></i>
+          <span>Comenzar a Armar Caja</span>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= MODAL: DETALLE DE PRODUCTO (WIREFRAME 03) ================= -->
+  <div id="productDetailModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog wireframe-product-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="closeDetailModalBtn" onclick="app.closeProductModal()" aria-label="Cerrar detalle">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="product-view-layout">
+        
+        <!-- Breadcrumbs Navigation -->
+        <nav class="wireframe-breadcrumbs" aria-label="Ruta de navegación">
+          <a href="#inicio">Inicio</a>
+          <span>/</span>
+          <a href="#catalogo">Catálogo</a>
+          <span>/</span>
+          <span id="detailBreadcrumbCategory">Alfajores</span>
+          <span>/</span>
+          <strong id="detailBreadcrumbName">Oro Negro</strong>
+        </nav>
+
+        <!-- Main Product Columns -->
+        <div class="product-main-row">
+          
+          <!-- Left: Gallery (Thumbnails + Main View) -->
+          <div class="product-gallery-col">
+            <div class="gallery-thumbs-list" id="detailModalThumbs"></div>
+            <div class="gallery-main-view">
+              <img id="detailModalImg" src="" alt="Alfajor de autor" class="gallery-main-img">
+              <span id="detailModalTag" class="detail-badge-pill">Insignia</span>
+            </div>
+          </div>
+
+          <!-- Right: Product Information & Cart Controls -->
+          <div class="product-info-col">
+            <h1 id="detailModalTitle" class="detail-product-name">Oro Negro</h1>
+            <p id="detailModalDesc" class="detail-product-desc">
+              Masa de cacao amargo profundo con un corazón voluptuoso de dulce de leche repostero infusionado con café arábica.
+            </p>
+            
+            <div class="detail-price-line">
+              <span id="detailModalPrice" class="detail-main-price">$ 4.500</span>
+              <span class="detail-price-sub">/ unidad de 90g</span>
+            </div>
+
+            <div class="detail-cta-row">
+              <div class="qty-stepper-box">
+                <button class="stepper-btn" id="modalQtyMinus" aria-label="Restar 1"><i class="fa-solid fa-minus"></i></button>
+                <span class="stepper-val" id="modalQtyValue">1</span>
+                <button class="stepper-btn" id="modalQtyPlus" aria-label="Sumar 1"><i class="fa-solid fa-plus"></i></button>
+              </div>
+
+              <button class="btn-add-cart-solid" id="modalAddToCartBtn">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Agregar al carrito</span>
+              </button>
+            </div>
+
+            <!-- Feature Pills (Sin TACC, Artesanal, Producto local) -->
+            <div class="product-feature-badges-row" id="detailFeatureBadges">
+              <div class="feature-badge-item">
+                <i class="fa-solid fa-wheat-awn-circle-exclamation"></i>
+                <span>Sin TACC / Apto</span>
+              </div>
+              <div class="feature-badge-item">
+                <i class="fa-solid fa-hands"></i>
+                <span>Artesanal</span>
+              </div>
+              <div class="feature-badge-item">
+                <i class="fa-solid fa-mountain"></i>
+                <span>Producto local</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tabbed Information (Ingredientes / Información / Relacionados) -->
+        <div class="product-tabs-section">
+          <div class="product-tabs-nav">
+            <button class="tab-btn active" onclick="app.switchProductTab('ingredientes')">Ingredientes</button>
+            <button class="tab-btn" onclick="app.switchProductTab('informacion')">Información de Conservación</button>
+            <button class="tab-btn" onclick="app.switchProductTab('relacionados')">Maridaje Recomendado</button>
+          </div>
+
+          <div class="product-tab-body">
+            <div id="tabBodyIngredientes" class="tab-content active">
+              <p id="detailModalIngredients">Dulce de leche artesanal, cacao amargo de origen, harina seleccionada, azúcar, manteca natural y café arábica.</p>
+            </div>
+            <div id="tabBodyInformacion" class="tab-content">
+              <p>Elaborado a mano en Comodoro Rivadavia, Chubut. Conservar en ambiente fresco y seco entre 15°C y 20°C. Consumo preferente dentro de los 30 días posteriores a la compra.</p>
+            </div>
+            <div id="tabBodyRelacionados" class="tab-content">
+              <p>Excelente combinación con café espresso de grano tostado medio o vino tinto Malbec de guarda patagónico.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cross-sell: También te puede interesar -->
+        <div class="related-products-section">
+          <h3 class="related-heading">También te puede interesar</h3>
+          <div class="related-products-grid" id="relatedProductsGrid"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= DRAWER: TU CARRITO & CHECKOUT (WIREFRAME 04) ================= -->
+  <div id="cartDrawerBackdrop" class="drawer-backdrop" aria-hidden="true">
+    <div class="cart-drawer-panel" role="dialog" aria-modal="true" aria-label="Tu Carrito">
+      
+      <!-- Drawer Header -->
+      <div class="cart-drawer-header">
+        <div class="cart-header-title-wrap">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <h3>Tu carrito (<span id="drawerCartCount">0</span> productos)</h3>
+        </div>
+        <button id="closeCartDrawerBtn" class="drawer-close-btn" onclick="app.closeCart()" aria-label="Cerrar carrito">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Drawer Body -->
+      <div class="cart-drawer-body">
+        
+        <!-- STEP 1: TU CARRITO -->
+        <div id="cartStepItems" class="cart-step-view active">
+          
+          <div id="drawerEmptyCart" class="drawer-empty-state" style="display:none;">
+            <div class="empty-cart-art"><i class="fa-solid fa-basket-shopping"></i></div>
+            <h4>Tu carrito está vacío</h4>
+            <p>Elegí tus sabores favoritos o armá tu caja personalizada.</p>
+            <button class="btn-solid-primary" onclick="app.closeCart()">Ver Catálogo</button>
+          </div>
+
+          <div id="drawerCartItemsList" class="cart-items-container">
+            <!-- Dynamic items matching wireframe 04 -->
+          </div>
+
+          <!-- Calculation Summary Box -->
+          <div class="cart-calculation-card" id="cartCalculationCard">
+            <div class="calc-row">
+              <span>Subtotal</span>
+              <span id="drawerSubtotal">$ 0</span>
+            </div>
+            
+            <div id="discountLine" class="calc-row discount-row" style="display:none;">
+              <span>Descuento (<span id="discountBadge">0%</span>)</span>
+              <span id="drawerDiscountVal">-$ 0</span>
+            </div>
+
+            <div class="calc-row">
+              <span>Envío</span>
+              <span id="drawerShippingVal">$ 1.500</span>
+            </div>
+
+            <div class="calc-row total-calc-row">
+              <span>Total</span>
+              <span id="drawerTotal">$ 0</span>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="cart-actions-column">
+            <button id="btnProceedCheckout" class="btn-checkout-primary-wireframe" onclick="app.goToCartStep('checkout')">
+              <span>Continuar compra</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="btn-continue-shopping" onclick="app.continueShopping()">
+              Seguir comprando
+            </button>
+          </div>
+
+          <div id="clearCartRow" class="clear-cart-link-wrap">
+            <button class="btn-text-danger" onclick="app.clearCart()">
+              <i class="fa-regular fa-trash-can"></i> Vaciar carrito
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: DATOS DE ENTREGA, PAGO Y CUPÓN -->
+        <div id="cartStepCheckout" class="cart-step-view">
+          
+          <!-- Stepper Progress Indicator -->
+          <div class="checkout-stepper-progress">
+            <div class="step-node active">
+              <span class="node-circle">1</span>
+              <span class="node-label">Entrega</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-node active">
+              <span class="node-circle">2</span>
+              <span class="node-label">Pago</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-node">
+              <span class="node-circle">3</span>
+              <span class="node-label">Confirmación</span>
+            </div>
+          </div>
+
+          <div class="checkout-back-link-wrap">
+            <button class="btn-back-to-items" onclick="app.goToCartStep('items')">
+              <i class="fa-solid fa-arrow-left"></i> Volver al carrito
+            </button>
+          </div>
+
+          <!-- User Identification Banner -->
+          <div id="checkoutUserStatus" class="checkout-user-banner">
+            <div class="user-banner-info">
+              <i class="fa-solid fa-circle-user"></i>
+              <div>
+                <strong id="checkoutUserHeading">Comprando como Invitado</strong>
+                <span id="checkoutUserSub">Iniciá sesión para autocompletar tus datos.</span>
+              </div>
+            </div>
+            <button id="checkoutAuthBtn" class="btn-sm-ghost" onclick="app.openAuthModal()">Identificarme</button>
+          </div>
+
+          <form id="checkoutForm" class="checkout-form" novalidate>
+            <h4 class="checkout-section-heading"><i class="fa-solid fa-user"></i> Datos de Contacto</h4>
+            <div class="form-group">
+              <label for="clientName">Nombre y Apellido <span class="required">*</span></label>
+              <input type="text" id="clientName" class="form-input" placeholder="Ej: María López" required>
+              <span class="field-error" id="errorName">Ingresá tu nombre</span>
+            </div>
+
+            <div class="form-group">
+              <label for="clientPhone">Teléfono / WhatsApp <span class="required">*</span></label>
+              <input type="tel" id="clientPhone" class="form-input" placeholder="Ej: 297 123 4567" required>
+              <span class="field-error" id="errorPhone">Ingresá un teléfono válido</span>
+            </div>
+
+            <h4 class="checkout-section-heading"><i class="fa-solid fa-location-dot"></i> Modalidad de Entrega</h4>
+            <div class="delivery-options-grid">
+              <label class="delivery-radio-card active">
+                <input type="radio" name="deliveryType" value="Envío a Domicilio" checked>
+                <div class="radio-card-content">
+                  <i class="fa-solid fa-motorcycle"></i>
+                  <strong>Envío a Domicilio</strong>
+                  <span>$ 1.500 (Comodoro Rivadavia)</span>
+                </div>
+              </label>
+
+              <label class="delivery-radio-card">
+                <input type="radio" name="deliveryType" value="Retiro en Tienda">
+                <div class="radio-card-content">
+                  <i class="fa-solid fa-store"></i>
+                  <strong>Retiro en Tienda</strong>
+                  <span>Gratis en sucursal</span>
+                </div>
+              </label>
+            </div>
+
+            <div class="form-group" id="addressFieldGroup">
+              <label for="clientAddress">Dirección de Entrega <span class="required">*</span></label>
+              <input type="text" id="clientAddress" class="form-input" placeholder="Ej: Av. Roca 1234, Dpto 2" required>
+              <span class="field-error" id="errorAddress">Ingresá tu dirección de envío</span>
+            </div>
+
+            <!-- Cupón de Descuento -->
+            <h4 class="checkout-section-heading"><i class="fa-solid fa-ticket"></i> ¿Tenés cupón de descuento?</h4>
+            <div class="coupon-input-group">
+              <input type="text" id="couponInput" class="form-input" placeholder="Ej: CERRO10">
+              <button type="button" class="btn-apply-coupon" onclick="app.applyCoupon()">Aplicar</button>
+            </div>
+            <div id="couponFeedback" class="coupon-feedback" style="display:none;"></div>
+
+            <!-- Medio de Pago -->
+            <h4 class="checkout-section-heading"><i class="fa-solid fa-credit-card"></i> Medio de Pago</h4>
+            <div class="form-group">
+              <select id="paymentMethod" class="form-select">
+                <option value="Transferencia Bancaria / Alias">Transferencia Bancaria / Alias (CBU)</option>
+                <option value="Efectivo contra entrega">Efectivo contra entrega / Retiro</option>
+                <option value="Mercado Pago">Mercado Pago (Link / QR)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="orderNotes">Notas o Dedicatoria para regalo</label>
+              <textarea id="orderNotes" class="form-textarea" rows="2" placeholder="Ej: Mensaje para tarjeta de regalo..."></textarea>
+            </div>
+
+            <button type="button" class="btn-checkout-primary-wireframe" onclick="app.submitOrderFlow()">
+              <span>Confirmar y pagar</span>
+              <i class="fa-solid fa-check"></i>
+            </button>
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= MODAL: CONFIRMACIÓN DE PEDIDO (WIREFRAME 05) ================= -->
+  <div id="orderSuccessModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog confirmation-modal-dialog" role="dialog" aria-modal="true">
+      
+      <!-- 3-Step Progress Indicator -->
+      <div class="checkout-stepper-progress">
+        <div class="step-node completed">
+          <span class="node-circle"><i class="fa-solid fa-check"></i></span>
+          <span class="node-label">Entrega</span>
+        </div>
+        <div class="step-connector completed"></div>
+        <div class="step-node completed">
+          <span class="node-circle"><i class="fa-solid fa-check"></i></span>
+          <span class="node-label">Pago</span>
+        </div>
+        <div class="step-connector completed"></div>
+        <div class="step-node active">
+          <span class="node-circle">3</span>
+          <span class="node-label">Confirmación</span>
+        </div>
+      </div>
+
+      <!-- Big Checkmark -->
+      <div class="confirmation-check-circle">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <h2 class="confirmation-title">¡Pedido confirmado!</h2>
+      <p class="confirmation-subtitle">
+        Gracias por elegir Cerro y Mar. Te enviamos los detalles a tu WhatsApp y correo.
+      </p>
+
+      <!-- Summary Card -->
+      <div class="confirmation-summary-card">
+        <h4 class="summary-card-heading">Resumen de compra</h4>
+        <div class="summary-card-items-table" id="confirmationItemsTable"></div>
+        
+        <div class="summary-card-total-row">
+          <span>Total</span>
+          <strong id="confirmationTotalVal">$ 0</strong>
+        </div>
+
+        <h4 class="summary-card-heading delivery-header">Datos de entrega</h4>
+        <div class="confirmation-delivery-info" id="confirmationDeliveryInfo"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="confirmation-actions-row">
+        <button class="btn-whatsapp-confirm-large" id="btnOpenWhatsAppDirect">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Abrir conversación en WhatsApp</span>
+        </button>
+        <button class="btn-back-home" onclick="app.closeOrderSuccessModal()">
+          Volver al inicio
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= MODAL: CONFIGURADOR DE CAJA PERSONALIZADA ================= -->
+  <div id="customBoxModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog box-builder-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" onclick="app.closeCustomBoxModal()" aria-label="Cerrar configurador">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="box-builder-content">
+        <div class="box-builder-header">
+          <span class="builder-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Armá tu Caja a Medida</span>
+          <h2 class="builder-title">Configuración de Sabores</h2>
+          <p class="builder-subtitle">Seleccioná la cantidad y combiná tus variedades favoritas de la Patagonia.</p>
+        </div>
+
+        <!-- Step 1: Tamaño de Caja -->
+        <div class="builder-step-section">
+          <h3 class="step-title"><span class="step-num">1</span> Selección de Caja por Cantidad</h3>
+          <div class="box-size-selector-grid">
+            <label class="box-size-option" onclick="app.selectBoxSize(3, 11000)">
+              <input type="radio" name="boxSizeOption" value="3">
+              <div class="box-size-card">
+                <div class="box-size-name">Caja x3</div>
+                <div class="box-size-desc">Degustación individual</div>
+                <div class="box-size-price">$ 11.000</div>
+              </div>
+            </label>
+
+            <label class="box-size-option active" onclick="app.selectBoxSize(6, 20000)">
+              <input type="radio" name="boxSizeOption" value="6" checked>
+              <div class="box-size-card">
+                <span class="box-best-badge">Más Elegida</span>
+                <div class="box-size-name">Caja x6</div>
+                <div class="box-size-desc">El tamaño ideal para regalar</div>
+                <div class="box-size-price">$ 20.000</div>
+              </div>
+            </label>
+
+            <label class="box-size-option" onclick="app.selectBoxSize(12, 38000)">
+              <input type="radio" name="boxSizeOption" value="12">
+              <div class="box-size-card">
+                <div class="box-size-name">Caja x12</div>
+                <div class="box-size-desc">Experiencia total para compartir</div>
+                <div class="box-size-price">$ 38.000</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Step 2: Sabores y Slots -->
+        <div class="builder-step-section">
+          <div class="slots-header-row">
+            <h3 class="step-title"><span class="step-num">2</span> Añadir Sabores a la Caja</h3>
+            <div id="boxStatusBadge" class="box-slots-status">
+              <span id="boxSlotsCount">0</span> de <span id="boxSlotsTarget">6</span> seleccionados
+            </div>
+          </div>
+
+          <div class="box-slots-visual-grid" id="boxSlotsVisualGrid"></div>
+          <div class="flavors-picker-list" id="flavorsPickerList"></div>
+        </div>
+
+        <div class="box-builder-footer">
+          <div class="builder-footer-info">
+            <span class="builder-total-label">Precio de tu Caja:</span>
+            <span id="boxBuilderPrice" class="builder-total-price">$ 20.000</span>
+          </div>
+
+          <button id="btnAddCustomBoxToCart" class="btn-add-custom-box disabled" onclick="app.addCustomBoxToCart()">
+            <i class="fa-solid fa-cart-plus"></i>
+            <span id="btnCustomBoxText">Completá los 6 sabores</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: AUTENTICACIÓN / USUARIO ================= -->
+  <div id="authModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog auth-modal-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" onclick="app.closeAuthModal()" aria-label="Cerrar modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="auth-modal-content">
+        <div class="auth-tabs">
+          <button id="tabLoginBtn" class="auth-tab-btn active" onclick="app.switchAuthTab('login')">Iniciar Sesión</button>
+          <button id="tabRegisterBtn" class="auth-tab-btn" onclick="app.switchAuthTab('register')">Registrarse</button>
+        </div>
+
+        <div class="google-auth-wrap">
+          <button class="btn-google-auth" onclick="app.loginWithGoogle()">
+            <svg class="google-icon" viewBox="0 0 48 48">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            </svg>
+            <span>Continuar con Cuenta de Google</span>
+          </button>
+        </div>
+
+        <div class="auth-divider"><span>o con tu correo</span></div>
+
+        <form id="loginForm" class="auth-form-view active" onsubmit="event.preventDefault(); app.submitLogin();">
+          <div class="form-group">
+            <label for="loginEmail">Correo Electrónico</label>
+            <input type="email" id="loginEmail" class="form-input" placeholder="tuemail@ejemplo.com" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Contraseña</label>
+            <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn-solid-primary-block">Ingresar a mi cuenta</button>
+        </form>
+
+        <form id="registerForm" class="auth-form-view" onsubmit="event.preventDefault(); app.submitRegister();">
+          <div class="form-group">
+            <label for="regName">Nombre y Apellido</label>
+            <input type="text" id="regName" class="form-input" placeholder="María López" required>
+          </div>
+          <div class="form-group">
+            <label for="regPhone">Teléfono / WhatsApp</label>
+            <input type="tel" id="regPhone" class="form-input" placeholder="297 123 4567" required>
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Correo Electrónico</label>
+            <input type="email" id="regEmail" class="form-input" placeholder="tuemail@ejemplo.com" required>
+          </div>
+          <div class="form-group">
+            <label for="regPassword">Contraseña</label>
+            <input type="password" id="regPassword" class="form-input" placeholder="Creá una contraseña" required>
+          </div>
+          <button type="submit" class="btn-solid-primary-block">Crear mi cuenta</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: INSTITUCIONAL & NOSOTROS ================= -->
+  <div id="storyModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog story-modal-dialog" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" onclick="app.closeStoryModal()" aria-label="Cerrar modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="story-modal-content">
+        
+        <!-- Institutional Navigation Tabs -->
+        <div class="institutional-nav-tabs">
+          <button class="inst-tab-btn active" onclick="app.switchStoryTab('historia')">Historia</button>
+          <button class="inst-tab-btn" onclick="app.switchStoryTab('mision')">Misión y Visión</button>
+          <button class="inst-tab-btn" onclick="app.switchStoryTab('proyeccion')">Proyección</button>
+          <button class="inst-tab-btn" onclick="app.switchStoryTab('faqs')">Preguntas Frecuentes</button>
+        </div>
+
+        <!-- TAB 1: HISTORIA -->
+        <div id="tabStoryHistoria" class="story-tab-pane active">
+          <span class="story-modal-tag">Identidad Patagónica</span>
+          <h2>Cerro y Mar: Alfajores de Autor</h2>
+          <p>En el corazón de Comodoro Rivadavia, entre las bardas patagónicas y el océano Atlántico, nació <strong>Cerro y Mar</strong> como un homenaje a la pastelería artesanal de excelencia.</p>
+          <p>Cada pieza se elabora a mano cuidando cada detalle: desde la masa perfumada con ralladura cítrica y cacao puro, hasta los rellenos abundantes con frutos silvestres cosechados en la región y chocolate belga templado a la perfección.</p>
+          <div class="story-pillars-grid">
+            <div class="pillar-item">
+              <i class="fa-solid fa-mountain-sun"></i>
+              <strong>Origen Auténtico</strong>
+              <span>Inspirados en la naturaleza de nuestra Patagonia.</span>
+            </div>
+            <div class="pillar-item">
+              <i class="fa-solid fa-award"></i>
+              <strong>Calidad de Autor</strong>
+              <span>Recetas originales sin aditivos industriales.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: MISIÓN Y VISIÓN -->
+        <div id="tabStoryMision" class="story-tab-pane">
+          <span class="story-modal-tag">Propósito & Valores</span>
+          <h2>Nuestra Misión y Visión</h2>
+          <div class="mission-vision-card">
+            <h4><i class="fa-solid fa-bullseye"></i> Misión</h4>
+            <p>Elaborar alfajores de autor que redefinan el estándar de la repostería artesanal argentina, utilizando materias primas nobles, procesos conscientes y recetas que transmitan la identidad sensorial de la Patagonia.</p>
+          </div>
+          <div class="mission-vision-card">
+            <h4><i class="fa-solid fa-compass"></i> Visión</h4>
+            <p>Consolidarnos como el referente gastronómico de alfajores premium del sur argentino, reconocidos a nivel nacional e internacional por nuestra innovación de sabores y devoción por la autenticidad.</p>
+          </div>
+        </div>
+
+        <!-- TAB 3: PROYECCIÓN A FUTURO -->
+        <div id="tabStoryProyeccion" class="story-tab-pane">
+          <span class="story-modal-tag">Crecimiento Sostenible</span>
+          <h2>Proyección y Futuro</h2>
+          <p>Nuestra visión hacia adelante une innovación sustentable y expansión cuidada:</p>
+          <ul class="projection-list">
+            <li><i class="fa-solid fa-check"></i> <strong>Línea Plant Based Expandida:</strong> Nuevas variedades 100% de origen vegetal sin gluten.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Envíos Nacionales Climatizados:</strong> Llegar a cada rincón de Argentina conservando la frescura del chocolate.</li>
+            <li><i class="fa-solid fa-check"></i> <strong>Cajas Corporativas Personalizadas:</strong> Experiencias de agasajo para empresas e instituciones.</li>
+          </ul>
+        </div>
+
+        <!-- TAB 4: PREGUNTAS FRECUENTES (FAQS) -->
+        <div id="tabStoryFaqs" class="story-tab-pane">
+          <span class="story-modal-tag">Centro de Ayuda</span>
+          <h2>Preguntas Frecuentes</h2>
+          <div class="faq-accordion-group">
+            <details class="faq-item" open>
+              <summary><strong>¿Cómo realizan las entregas en Comodoro Rivadavia?</strong></summary>
+              <p>Contamos con envíos a domicilio en toda la ciudad por $1.500 y retiro sin cargo en nuestro punto de entrega céntrico.</p>
+            </details>
+            <details class="faq-item">
+              <summary><strong>¿Cuánto duran los alfajores y cómo conservarlos?</strong></summary>
+              <p>Al ser 100% artesanales y sin conservantes químicos, recomendamos consumirlos dentro de los 30 días de elaboración y conservarlos en lugar fresco y seco (15° a 20°C).</p>
+            </details>
+            <details class="faq-item">
+              <summary><strong>¿Puedo armar una caja con sabores variados a mi gusto?</strong></summary>
+              <p>¡Sí! Podés utilizar nuestro configurador interactivo "Armá tu Caja a Medida" en presentaciones de 3, 6 o 12 unidades eligiendo cada sabor individualmente.</p>
+            </details>
+            <details class="faq-item">
+              <summary><strong>¿Cómo confirmo mi pedido y qué métodos de pago aceptan?</strong></summary>
+              <p>Podés abonar por Transferencia bancaria (CBU/Alias), Efectivo contra entrega o Mercado Pago. Al finalizar tu compra, se genera el pedido con enlace directo a nuestro WhatsApp para coordinar la entrega.</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="story-modal-actions">
+          <button class="btn-solid-primary" onclick="app.closeStoryModal(); window.location.hash = '#catalogo';">
+            Explorar el Catálogo de Sabores
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER (EXACT WIREFRAME ARCHITECTURE) ================= -->
+  <footer class="site-footer" id="contacto">
+    <div class="container footer-main-grid">
+      
+      <!-- Brand & Social Column -->
+      <div class="footer-col-brand">
+        <div class="footer-logo-wrap">
+          <img src="logo 2.jpeg" alt="Cerro y Mar - Alfajores de Autor" class="footer-brand-logo">
+        </div>
+
+        <div class="footer-social-icons-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://facebook.com/cerroymar.crd" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/5492975928775" target="_blank" rel="noopener" class="footer-social-btn" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 1: PRODUCTOS -->
+      <div class="footer-col-nav">
+        <h4 class="footer-column-heading">PRODUCTOS</h4>
+        <ul class="footer-links-list">
+          <li><a href="#catalogo" onclick="app.filterByCategory('clasicos')">Clásicos</a></li>
+          <li><a href="#catalogo" onclick="app.filterByCategory('patagonicos')">Patagónicos</a></li>
+          <li><a href="#catalogo" onclick="app.filterByCategory('especiales')">Especiales</a></li>
+          <li><a href="#catalogo" onclick="app.filterByCategory('argentos')">Argentos</a></li>
+          <li><a href="#catalogo" onclick="app.filterByCategory('veganos')">Veganos</a></li>
+          <li><a href="#catalogo" onclick="app.filterByCategory('glutenfree')">Gluten Free</a></li>
+          <li><a href="#catalogo" onclick="app.filterByCategory('plantbased')">Plant Based</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 2: PREMIUM -->
+      <div class="footer-col-nav">
+        <h4 class="footer-column-heading">PREMIUM</h4>
+        <ul class="footer-links-list">
+          <li><a href="#cajas-premium">Cajas Especiales</a></li>
+          <li><a href="#cajas-premium">Cajas Patagónicas</a></li>
+          <li><a href="#cajas-premium">Cajas Argento</a></li>
+          <li><a href="#cajas-premium">Caja Plant Based</a></li>
+          <li><a href="javascript:void(0)" onclick="app.openCustomBoxModal()">Armá tu Caja a Medida</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: NOSOTROS -->
+      <div class="footer-col-nav">
+        <h4 class="footer-column-heading">NOSOTROS</h4>
+        <ul class="footer-links-list">
+          <li><a href="javascript:void(0)" onclick="app.openStoryTab('faqs')">Preguntas Frecuentes</a></li>
+          <li><a href="#catalogo">Nuestros Productos</a></li>
+          <li><a href="javascript:void(0)" onclick="app.openStoryTab('mision')">Misión y Visión</a></li>
+          <li><a href="javascript:void(0)" onclick="app.openStoryTab('proyeccion')">Proyección a futuro</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: CONTACTO (TOTALMENTE FUNCIONAL) -->
+      <div class="footer-col-nav footer-contact-col">
+        <h4 class="footer-column-heading">CONTACTO</h4>
+        <div class="footer-contact-items">
+          <p><a href="mailto:cerroymarcr@gmail.com" class="footer-interactive-link"><i class="fa-regular fa-envelope"></i> cerroymarcr@gmail.com</a></p>
+          <p><a href="tel:+5492975928775" class="footer-interactive-link"><i class="fa-solid fa-phone"></i> +54 9 297 592-8775</a></p>
+          <p><a href="https://maps.google.com/?q=Comodoro+Rivadavia+Chubut" target="_blank" rel="noopener" class="footer-interactive-link"><i class="fa-solid fa-location-dot"></i> Comodoro Rivadavia, Chubut</a></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="footer-bottom-bar">
+      <div class="container footer-bottom-flex">
+        <span>© 2026 Cerro y Mar - Alfajores de Autor. Todos los derechos reservados.</span>
+        <span>Diseño y Desarrollo de Alta Fidelidad</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
