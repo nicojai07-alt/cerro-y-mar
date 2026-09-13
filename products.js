@@ -86,12 +86,10 @@ const PRODUCTS_DATA = [
     description: "Ganache sedosa emulsionada con crema de licor Baileys irlandés, dulce de leche y notas sutiles de café bajo una corteza crocante de chocolate.",
     ingredients: "Licor de crema, dulce de leche premium, café arábica, chocolate semiamargo.",
     features: ["Toque de Licor", "Gourmet", "Artesanal"],
-    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
+    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b0c1821-684a-5ee4-bb2a-28518a1a6806.png",
     thumbnails: [
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80",
       "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b0c1821-684a-5ee4-bb2a-28518a1a6806.png",
-      "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/53720a80-c3ba-5a4d-9324-36819ebda8a8.png"
     ]
   },
   {
@@ -107,9 +105,7 @@ const PRODUCTS_DATA = [
     image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b0c1821-684a-5ee4-bb2a-28518a1a6806.png",
     thumbnails: [
       "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b0c1821-684a-5ee4-bb2a-28518a1a6806.png",
-      "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/2de595bb-0adb-5c7f-965f-38fbe7e2e8f5.jpeg"
     ]
   },
   {
@@ -125,9 +121,7 @@ const PRODUCTS_DATA = [
     image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png",
     thumbnails: [
       "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png",
-      "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/53720a80-c3ba-5a4d-9324-36819ebda8a8.png"
     ]
   },
   {
@@ -140,12 +134,10 @@ const PRODUCTS_DATA = [
     description: "Contraste sublime: dulce de leche con toque de caramelo y cristales puros de sal marina de la costa atlántica patagónica bajo chocolate amargo.",
     ingredients: "Dulce de leche artesanal, escamas de sal marina patagónica, chocolate negro 65%.",
     features: ["Sal Marina Atlántica", "Equilibrio Único", "Artesanal"],
-    image: "https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=800&q=80",
+    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/53720a80-c3ba-5a4d-9324-36819ebda8a8.png",
     thumbnails: [
-      "https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=400&q=80",
       "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/53720a80-c3ba-5a4d-9324-36819ebda8a8.png",
-      "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/b0d96b47-7ac3-591e-9eac-1d4ff2fdc49e.png"
     ]
   },
   {
@@ -158,12 +150,10 @@ const PRODUCTS_DATA = [
     description: "Tapas extra crocantes de galleta de cacao intenso rellenas con doble capa: crema de vainilla americana y dulce de leche repostero.",
     ingredients: "Galleta de cacao negro estilo Oreo, crema de vainilla, dulce de leche, chocolate blanco y negro.",
     features: ["Textura Crocante", "Doble Relleno", "Artesanal"],
-    image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=800&q=80",
+    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/b0d96b47-7ac3-591e-9eac-1d4ff2fdc49e.png",
     thumbnails: [
-      "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=400&q=80",
       "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/b0d96b47-7ac3-591e-9eac-1d4ff2fdc49e.png",
-      "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/53720a80-c3ba-5a4d-9324-36819ebda8a8.png"
     ]
   },
   {
@@ -179,9 +169,7 @@ const PRODUCTS_DATA = [
     image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
     thumbnails: [
       "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
-      "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c69f4986-4d4f-51c5-9bcc-ea63b8f237a2.png"
     ]
   },
   {
@@ -194,12 +182,10 @@ const PRODUCTS_DATA = [
     description: "Fusión osada y armónica: ganache infusionada con hierbas botánicas de fernet artesanal cordobés y dulce de leche bajo chocolate negro.",
     ingredients: "Fernet artesanal, dulce de leche repostero, masa de especias, chocolate amargo.",
     features: ["Sabor Argento", "Hierbas Finas", "Artesanal"],
-    image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80",
+    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png",
     thumbnails: [
-      "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=400&q=80",
-      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b0c1821-684a-5ee4-bb2a-28518a1a6806.png",
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png",
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b0c1821-684a-5ee4-bb2a-28518a1a6806.png"
     ]
   },
   {
@@ -215,9 +201,7 @@ const PRODUCTS_DATA = [
     image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c69f4986-4d4f-51c5-9bcc-ea63b8f237a2.png",
     thumbnails: [
       "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c69f4986-4d4f-51c5-9bcc-ea63b8f237a2.png",
-      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/2de595bb-0adb-5c7f-965f-38fbe7e2e8f5.jpeg",
-      "https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/2de595bb-0adb-5c7f-965f-38fbe7e2e8f5.jpeg"
     ]
   },
   {
@@ -233,9 +217,7 @@ const PRODUCTS_DATA = [
     image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
     thumbnails: [
       "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
-      "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/53720a80-c3ba-5a4d-9324-36819ebda8a8.png"
     ]
   },
   {
@@ -248,12 +230,10 @@ const PRODUCTS_DATA = [
     description: "Masa elaborada con harina integral orgánica molida a piedra, azúcar mascabo, semillas de chía y lino, rellena de dulce de leche suave.",
     ingredients: "Harina integral orgánica, semillas tostadas, azúcar mascabo, dulce de leche tradicional.",
     features: ["Harina Integral", "Fibra Natural", "Artesanal"],
-    image: "https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=800&q=80",
+    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
     thumbnails: [
-      "https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png"
     ]
   },
   {
@@ -266,10 +246,10 @@ const PRODUCTS_DATA = [
     description: "Selección de 6 alfajores de autor premium: Oro Negro, Dubai Pistacho, Licor Dulce, Marroc, Sal Marina y Oreo en estuche rígido con faja.",
     ingredients: "6 alfajores de 90g de la línea especial en caja de autor rígida.",
     features: ["Estuche Premium", "Ideal Regalo", "6 Sabores Únicos"],
-    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png",
+    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
     thumbnails: [
-      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png",
-      "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/53720a80-c3ba-5a4d-9324-36819ebda8a8.png"
     ]
   },
   {
@@ -282,10 +262,10 @@ const PRODUCTS_DATA = [
     description: "Homenaje a nuestra región: 2 Calafate, 2 Frambuespecial y 2 Vino Malbec patagónico en estuche exclusivo de colección.",
     ingredients: "6 alfajores elaborados con frutos silvestres y vino de la Patagonia.",
     features: ["100% Patagonia", "Frutos Nativos", "Estuche Regalo"],
-    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png",
+    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c69f4986-4d4f-51c5-9bcc-ea63b8f237a2.png",
     thumbnails: [
-      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png",
-      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c69f4986-4d4f-51c5-9bcc-ea63b8f237a2.png",
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/2de595bb-0adb-5c7f-965f-38fbe7e2e8f5.jpeg"
     ]
   },
   {
@@ -298,10 +278,10 @@ const PRODUCTS_DATA = [
     description: "Lo mejor de nuestra pastelería criolla: 2 Comodorense Clásicos, 2 Fernet y 2 Vino Malbec en caja con sello de cera artesanal.",
     ingredients: "6 alfajores representativos de la cultura de repostería argentina.",
     features: ["Sabores de Autor", "Presentación de Lujo", "Artesanal"],
-    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png",
+    image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png",
     thumbnails: [
-      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png",
-      "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png",
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b0c1821-684a-5ee4-bb2a-28518a1a6806.png"
     ]
   },
   {
@@ -316,8 +296,7 @@ const PRODUCTS_DATA = [
     features: ["100% Plant Based", "Apto Vegano", "Caja Sustentable"],
     image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
     thumbnails: [
-      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
-      "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80"
+      "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg"
     ]
   }
 ];

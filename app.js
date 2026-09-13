@@ -86,8 +86,8 @@
           description: "Ganache sedosa emulsionada con crema de licor Baileys irlandés, dulce de leche y notas sutiles de café bajo una corteza crocante de chocolate.",
           ingredients: "Licor de crema, dulce de leche premium, café arábica, chocolate semiamargo.",
           features: ["Toque de Licor", "Gourmet", "Artesanal"],
-          image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80",
-          thumbnails: ["https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"]
+          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b0c1821-684a-5ee4-bb2a-28518a1a6806.png",
+          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b0c1821-684a-5ee4-bb2a-28518a1a6806.png"]
         },
         {
           id: "alf-vino",
@@ -125,8 +125,8 @@
           description: "Contraste sublime: dulce de leche con toque de caramelo y cristales puros de sal marina de la costa atlántica patagónica bajo chocolate amargo.",
           ingredients: "Dulce de leche artesanal, escamas de sal marina patagónica, chocolate negro 65%.",
           features: ["Sal Marina Atlántica", "Equilibrio Único", "Artesanal"],
-          image: "https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=800&q=80",
-          thumbnails: ["https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=400&q=80"]
+          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/53720a80-c3ba-5a4d-9324-36819ebda8a8.png",
+          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/53720a80-c3ba-5a4d-9324-36819ebda8a8.png"]
         },
         {
           id: "alf-oreo",
@@ -138,8 +138,8 @@
           description: "Tapas extra crocantes de galleta de cacao intenso rellenas con doble capa: crema de vainilla americana y dulce de leche repostero.",
           ingredients: "Galleta de cacao negro estilo Oreo, crema de vainilla, dulce de leche, chocolate blanco y negro.",
           features: ["Textura Crocante", "Doble Relleno", "Artesanal"],
-          image: "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=800&q=80",
-          thumbnails: ["https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=400&q=80"]
+          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/b0d96b47-7ac3-591e-9eac-1d4ff2fdc49e.png",
+          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/b0d96b47-7ac3-591e-9eac-1d4ff2fdc49e.png"]
         },
         {
           id: "alf-chocovegan",
@@ -164,8 +164,8 @@
           description: "Fusión osada y armónica: ganache infusionada con hierbas botánicas de fernet artesanal cordobés y dulce de leche bajo chocolate negro.",
           ingredients: "Fernet artesanal, dulce de leche repostero, masa de especias, chocolate amargo.",
           features: ["Sabor Argento", "Hierbas Finas", "Artesanal"],
-          image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80",
-          thumbnails: ["https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=400&q=80"]
+          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png",
+          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png"]
         },
         {
           id: "alf-frutos-rojos",
@@ -203,8 +203,8 @@
           description: "Masa elaborada con harina integral orgánica molida a piedra, azúcar mascabo, semillas de chía y lino, rellena de dulce de leche suave.",
           ingredients: "Harina integral orgánica, semillas tostadas, azúcar mascabo, dulce de leche tradicional.",
           features: ["Harina Integral", "Fibra Natural", "Artesanal"],
-          image: "https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=800&q=80",
-          thumbnails: ["https://images.unsplash.com/photo-1548848221-0c2e497ed557?auto=format&fit=crop&w=400&q=80"]
+          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
+          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg"]
         },
         {
           id: "box-especiales",
@@ -216,8 +216,8 @@
           description: "Selección de 6 alfajores de autor premium: Oro Negro, Dubai Pistacho, Licor Dulce, Marroc, Sal Marina y Oreo en estuche rígido con faja.",
           ingredients: "6 alfajores de 90g de la línea especial en caja de autor rígida.",
           features: ["Estuche Premium", "Ideal Regalo", "6 Sabores Únicos"],
-          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png",
-          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png"]
+          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg",
+          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/8b617c09-f4fc-5f69-a43f-cbd85c18e1d6.jpeg"]
         },
         {
           id: "box-patagonicas",
@@ -229,8 +229,8 @@
           description: "Homenaje a nuestra región: 2 Calafate, 2 Frambuespecial y 2 Vino Malbec patagónico en estuche exclusivo de colección.",
           ingredients: "6 alfajores elaborados con frutos silvestres y vino de la Patagonia.",
           features: ["100% Patagonia", "Frutos Nativos", "Estuche Regalo"],
-          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png",
-          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png"]
+          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c69f4986-4d4f-51c5-9bcc-ea63b8f237a2.png",
+          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c69f4986-4d4f-51c5-9bcc-ea63b8f237a2.png"]
         },
         {
           id: "box-argento",
@@ -242,8 +242,8 @@
           description: "Lo mejor de nuestra pastelería criolla: 2 Comodorense Clásicos, 2 Fernet y 2 Vino Malbec en caja con sello de cera artesanal.",
           ingredients: "6 alfajores representativos de la cultura de repostería argentina.",
           features: ["Sabores de Autor", "Presentación de Lujo", "Artesanal"],
-          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png",
-          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/547e5711-a120-59c9-bc77-9c648cef04fe.png"]
+          image: "https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png",
+          thumbnails: ["https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/c04d4b54-7f83-5699-b01a-c80aaefa535d.png"]
         },
         {
           id: "box-plant-based",
@@ -403,6 +403,10 @@
       // Institutional & Story Modal
       storyModal: document.getElementById("storyModal"),
       closeStoryModalBtn: document.getElementById("closeStoryModalBtn"),
+
+      // Contact Modal
+      contactModal: document.getElementById("contactModal"),
+      closeContactModalBtn: document.getElementById("closeContactModalBtn"),
 
       // Toasts
       toastContainer: document.getElementById("toastContainer")
@@ -1344,6 +1348,23 @@
     switchStoryTab(tabId);
   };
 
+  // ================= CONTACT MODAL =================
+  const openContactModal = () => {
+    if (DOM.contactModal) {
+      DOM.contactModal.classList.add("show");
+      DOM.contactModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+  };
+
+  const closeContactModal = () => {
+    if (DOM.contactModal) {
+      DOM.contactModal.classList.remove("show");
+      DOM.contactModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+  };
+
   // ================= EVENT LISTENERS =================
   const setupEvents = () => {
     let isScrolled = false;
@@ -1469,6 +1490,16 @@
       });
     }
 
+    // Contact Modal triggers
+    if (DOM.closeContactModalBtn) {
+      DOM.closeContactModalBtn.addEventListener("click", closeContactModal);
+    }
+    if (DOM.contactModal) {
+      DOM.contactModal.addEventListener("click", (e) => {
+        if (e.target === DOM.contactModal) closeContactModal();
+      });
+    }
+
     // Keyboard ESC handler
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
@@ -1477,6 +1508,7 @@
         closeAuthModal();
         closeCustomBoxModal();
         closeStoryModal();
+        closeContactModal();
         closeOrderSuccessModal();
       }
     });
@@ -1563,6 +1595,10 @@
     closeStoryModal,
     switchStoryTab,
     openStoryTab,
+
+    // Contact Modal
+    openContactModal,
+    closeContactModal,
 
     filterByCategory: (category) => {
       state.activeCategory = category;

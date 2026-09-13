@@ -39,7 +39,7 @@
           <li><a href="#catalogo" class="nav-item">Catálogo</a></li>
           <li><a href="#cajas-premium" class="nav-item">Premium</a></li>
           <li><a href="#nosotros" class="nav-item">Nosotros</a></li>
-          <li><a href="#contacto" class="nav-item">Contacto</a></li>
+          <li><a href="javascript:void(0)" onclick="app.openContactModal()" class="nav-item">Contacto</a></li>
         </ul>
       </nav>
 
@@ -117,7 +117,7 @@
           <div class="editorial-badge">
             <i class="fa-solid fa-cookie"></i> 100% Sin Conservantes
           </div>
-          <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=800&q=80" alt="Alfajor artesanal de autor" class="editorial-main-image">
+          <img src="https://us-east-1-prod-treinta-assets-bucket.s3.amazonaws.com/53720a80-c3ba-5a4d-9324-36819ebda8a8.png" alt="Alfajor artesanal de autor Cerro y Mar" class="editorial-main-image">
         </div>
       </div>
 
@@ -906,6 +906,78 @@
           </button>
         </div>
 
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: CONTACTO HORIZONTAL FLOTANTE ================= -->
+  <div id="contactModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog horizontal-contact-dialog" role="dialog" aria-modal="true" aria-label="Contacto Directo Cerro y Mar">
+      <button class="modal-close-btn close-modal-btn" id="closeContactModalBtn" onclick="app.closeContactModal()" aria-label="Cerrar modal de contacto">
+        &times;
+      </button>
+
+      <div class="horizontal-contact-card">
+        <!-- Left info column -->
+        <div class="contact-modal-left">
+          <span class="contact-modal-tag"><i class="fa-solid fa-paper-plane"></i> Atención Personalizada</span>
+          <h2 class="contact-modal-title">Contacto Directo</h2>
+          <p class="contact-modal-desc">
+            ¿Tenés dudas sobre nuestros sabores, pedidos especiales para eventos o envíos corporativos? Escribinos y te asesoramos al instante.
+          </p>
+          <div class="contact-modal-badge">
+            <i class="fa-solid fa-location-dot"></i> Comodoro Rivadavia, Chubut · Patagonia Argentina
+          </div>
+          <div class="contact-modal-cta-wrap">
+            <a href="https://wa.me/5492975928775" target="_blank" rel="noopener" class="btn-whatsapp-contact">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Conversar por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right info column -->
+        <div class="contact-modal-right">
+          <div class="contact-info-block">
+            <div class="contact-info-icon"><i class="fa-regular fa-envelope"></i></div>
+            <div class="contact-info-details">
+              <span class="contact-info-label">Correo Electrónico</span>
+              <a href="mailto:cerroymarcr@gmail.com" class="contact-info-value">cerroymarcr@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+            <div class="contact-info-details">
+              <span class="contact-info-label">Teléfono / WhatsApp</span>
+              <a href="tel:+5492975928775" class="contact-info-value">+54 9 297 592-8775</a>
+            </div>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-info-icon"><i class="fa-regular fa-clock"></i></div>
+            <div class="contact-info-details">
+              <span class="contact-info-label">Horarios de Atención</span>
+              <span class="contact-info-value">Lunes a Sábados · 09:00 a 20:00 hs</span>
+            </div>
+          </div>
+
+          <!-- Social media pills row -->
+          <div class="contact-modal-socials">
+            <span class="socials-label">Seguinos en redes:</span>
+            <div class="socials-row">
+              <a href="https://instagram.com" target="_blank" rel="noopener" class="contact-social-pill" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i> Instagram
+              </a>
+              <a href="https://facebook.com/cerroymar.crd" target="_blank" rel="noopener" class="contact-social-pill" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i> Facebook
+              </a>
+              <a href="https://tiktok.com" target="_blank" rel="noopener" class="contact-social-pill" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok"></i> TikTok
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
