@@ -113,16 +113,17 @@ a {
   background: var(--petroleum-blue) url('assets/fondo-1.jpeg') center top / cover no-repeat;
   border-bottom: 1px solid rgba(237, 231, 221, 0.18);
   box-shadow: 0 4px 20px rgba(0, 35, 48, 0.25);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 98px; /* Altura amplia inicial para aire visual */
+  height: 106px; /* Altura más generosa para dar aire visual y evitar compresión */
+  padding: 0.5rem 0;
   gap: 1.5rem;
-  transition: height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
 }
 
 /* Brand Header Logos: control estricto de visibilidad y fusión sin fondo plano */
@@ -144,14 +145,14 @@ a {
   box-shadow: none !important;
   filter: none !important;
   mix-blend-mode: normal !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
 }
 
 /* ESTADO INICIAL (Top / Scroll = 0): Muestra ÚNICAMENTE logo uno */
 .site-header .logo-initial {
   display: block !important;
-  height: 74px;
-  max-height: 78px;
+  height: 76px;
+  max-height: 80px;
   width: auto;
 }
 
@@ -165,7 +166,8 @@ a {
 }
 
 .site-header.scrolled .header-inner {
-  height: 64px; /* Barra reducida al hacer scroll */
+  height: 68px; /* Barra reducida al hacer scroll suave */
+  padding: 0.25rem 0;
 }
 
 .site-header.scrolled .logo-initial {
@@ -2218,16 +2220,26 @@ a {
   padding-bottom: 3.5rem;
 }
 
-.footer-logo-wrap {
+.footer-col-brand, .footer-brand {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 1.25rem;
+  align-items: center;
+  text-align: center;
+  gap: 1.15rem;
 }
 
-/* Brand Footer Logo (logo 2) */
+.footer-logo-wrap, .footer-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+/* Brand Footer Logo (Logo 1 Vertical) */
 .footer-brand-logo {
-  max-width: 240px;
+  max-width: 150px;
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -2238,7 +2250,7 @@ a {
   outline: none !important;
   filter: none !important;
   mix-blend-mode: normal !important;
-  margin-bottom: 0.85rem;
+  margin: 0 auto;
   transition: transform 0.3s ease;
 }
 
@@ -2252,12 +2264,15 @@ a {
 }
 
 .footer-brand-logo:hover {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .footer-social-icons-row {
   display: flex;
-  gap: 0.65rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
 }
 
 .footer-social-btn {
@@ -2357,7 +2372,7 @@ a {
   opacity: 1;
 }
 
-.modal-close-btn {
+.modal-close-btn, .close-modal-btn {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
@@ -2369,13 +2384,19 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.05rem;
-  z-index: 10;
+  font-size: 1.45rem;
+  line-height: 1;
+  font-weight: 300;
+  border: none;
+  cursor: pointer;
+  z-index: 30;
+  transition: all 0.2s ease;
 }
 
-.modal-close-btn:hover {
+.modal-close-btn:hover, .close-modal-btn:hover {
   background: var(--danger-bg);
   color: var(--danger-color);
+  transform: scale(1.08);
 }
 
 /* Forms */

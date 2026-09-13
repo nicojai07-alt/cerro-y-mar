@@ -402,6 +402,7 @@
 
       // Institutional & Story Modal
       storyModal: document.getElementById("storyModal"),
+      closeStoryModalBtn: document.getElementById("closeStoryModalBtn"),
 
       // Toasts
       toastContainer: document.getElementById("toastContainer")
@@ -1345,10 +1346,14 @@
 
   // ================= EVENT LISTENERS =================
   const setupEvents = () => {
+    let isScrolled = false;
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      const currentScrollY = window.scrollY || window.pageYOffset || 0;
+      if (currentScrollY > 60 && !isScrolled) {
+        isScrolled = true;
         DOM.siteHeader.classList.add("scrolled");
-      } else {
+      } else if (currentScrollY <= 30 && isScrolled) {
+        isScrolled = false;
         DOM.siteHeader.classList.remove("scrolled");
       }
     };
@@ -1453,6 +1458,16 @@
         updateCartUI();
       });
     });
+
+    // Institutional / Story Modal triggers
+    if (DOM.closeStoryModalBtn) {
+      DOM.closeStoryModalBtn.addEventListener("click", closeStoryModal);
+    }
+    if (DOM.storyModal) {
+      DOM.storyModal.addEventListener("click", (e) => {
+        if (e.target === DOM.storyModal) closeStoryModal();
+      });
+    }
 
     // Keyboard ESC handler
     document.addEventListener("keydown", (e) => {
