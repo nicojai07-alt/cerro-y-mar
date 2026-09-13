@@ -297,9 +297,14 @@
     DOM = {
       // Header & Search
       siteHeader: document.getElementById("siteHeader"),
+      headerSearchWrap: document.getElementById("headerSearchWrap"),
       searchInput: document.getElementById("searchInput"),
       catalogSearchInput: document.getElementById("catalogSearchInput"),
       clearSearchBtn: document.getElementById("clearSearchBtn"),
+      searchSuggestionsDropdown: document.getElementById("searchSuggestionsDropdown"),
+      suggestionsList: document.getElementById("suggestionsList"),
+      suggestionsHeader: document.getElementById("suggestionsHeader"),
+      suggestionViewAllBtn: document.getElementById("suggestionViewAllBtn"),
       filterStatus: document.getElementById("filterStatus"),
       filterStatusText: document.getElementById("filterStatusText"),
       resetFiltersBtn: document.getElementById("resetFiltersBtn"),
@@ -561,27 +566,151 @@
     `).join("");
   };
 
-  const applyFilters = () => {
-    let result = state.products.filter((p) => p.category !== "combos");
+  // ================= LIVE SEARCH & AUTOCOMPLETE WITH PRIORITIZATION =================
+  const closeSearchDropdown = () => {
+    if (DOM.searchSuggestionsDropdown) {
+      DOM.searchSuggestionsDropdown.style.display = "none";
+    }
+  };
 
-    // Category filter
-    if (state.activeCategory !== "all") {
-      result = result.filter((p) => {
-        if (p.category === state.activeCategory) return true;
-        if (p.filterTags && p.filterTags.includes(state.activeCategory)) return true;
-        return false;
-      });
+  const openSearchDropdown = () => {
+    if (DOM.searchSuggestionsDropdown && state.searchQuery.trim().length > 0) {
+      DOM.searchSuggestionsDropdown.style.display = "flex";
+    }
+  };
+
+  const selectSearchSuggestion = (productId) => {
+    closeSearchDropdown();
+    openProductModal(productId);
+  };
+
+  const renderSearchSuggestions = (queryStr) => {
+    if (!DOM.searchSuggestionsDropdown || !DOM.suggestionsList) return;
+    const query = (queryStr || "").toLowerCase().trim();
+
+    if (query === "") {
+      closeSearchDropdown();
+      return;
     }
 
-    // Search query filter
+    const allMatches = state.products.filter((p) => {
+      const matchName = p.name && p.name.toLowerCase().includes(query);
+      const matchDesc = p.description && p.description.toLowerCase().includes(query);
+      const matchBadge = p.badge && p.badge.toLowerCase().includes(query);
+      const matchIng = p.ingredients && p.ingredients.toLowerCase().includes(query);
+      const matchCategory = p.category && p.category.toLowerCase().includes(query);
+      const matchTags = p.filterTags && p.filterTags.some((t) => t.toLowerCase().includes(query));
+      return matchName || matchDesc || matchBadge || matchIng || matchCategory || matchTags;
+    });
+
+    // PRIORIDAD ESTRICTA: 1) Alfajores individuales primero, 2) Cajas y combos después
+    const matchingAlfajores = allMatches.filter((p) => p.category !== "combos");
+    const matchingCombos = allMatches.filter((p) => p.category === "combos");
+    const totalCount = matchingAlfajores.length + matchingCombos.length;
+
+    if (DOM.suggestionsHeader) {
+      DOM.suggestionsHeader.innerHTML = `<span>${totalCount} resultado${totalCount === 1 ? "" : "s"} para "${queryStr}"</span>`;
+    }
+
+    if (totalCount === 0) {
+      DOM.suggestionsList.innerHTML = `
+        <div class="suggestion-empty">
+          <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5rem; color: #CBD5E1;"></i>
+          <span>No encontramos sabores para "<strong>${queryStr}</strong>"</span>
+          <span style="font-size: 0.75rem; color: #94A3B8;">Probá buscando "Pistacho", "Frambuesa", "Oro Negro" o "Cajas"</span>
+        </div>
+      `;
+      DOM.searchSuggestionsDropdown.style.display = "flex";
+      return;
+    }
+
+    let html = "";
+
+    // 1. Grupo: Alfajores de Autor (Prioritarios)
+    if (matchingAlfajores.length > 0) {
+      html += `<div class="suggestions-group-title"><i class="fa-solid fa-cookie"></i> Alfajores de Autor (${matchingAlfajores.length})</div>`;
+      html += matchingAlfajores.map((p) => `
+        <div class="suggestion-item" onclick="app.selectSearchSuggestion('${p.id}')">
+          <img src="${p.image}" alt="${p.name}" class="suggestion-thumb" loading="lazy">
+          <div class="suggestion-info">
+            <div class="suggestion-name-row">
+              <span class="suggestion-name">${p.name}</span>
+              <span class="suggestion-price">${formatCurrency(p.price)}</span>
+            </div>
+            <div class="suggestion-sub">
+              <span class="suggestion-badge-pill">${p.badge}</span>
+              <span>· Unidad 90g</span>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // 2. Grupo: Cajas y Colecciones (Debajo de los alfajores)
+    if (matchingCombos.length > 0) {
+      html += `<div class="suggestions-group-title"><i class="fa-solid fa-boxes-stacked"></i> Cajas & Presentaciones (${matchingCombos.length})</div>`;
+      html += matchingCombos.map((p) => `
+        <div class="suggestion-item" onclick="app.selectSearchSuggestion('${p.id}')">
+          <img src="${p.image}" alt="${p.name}" class="suggestion-thumb" loading="lazy">
+          <div class="suggestion-info">
+            <div class="suggestion-name-row">
+              <span class="suggestion-name">${p.name}</span>
+              <span class="suggestion-price">${formatCurrency(p.price)}</span>
+            </div>
+            <div class="suggestion-sub">
+              <span class="suggestion-badge-pill">${p.badge}</span>
+              <span>· Pack Selección</span>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    DOM.suggestionsList.innerHTML = html;
+    DOM.searchSuggestionsDropdown.style.display = "flex";
+  };
+
+  const applyFilters = () => {
     const query = state.searchQuery.toLowerCase().trim();
+    let result = [];
+
     if (query !== "") {
-      result = result.filter(
-        (p) =>
-          p.name.toLowerCase().includes(query) ||
-          p.description.toLowerCase().includes(query) ||
-          p.ingredients.toLowerCase().includes(query)
+      // Prioridad 1: Alfajores individuales que coincidan
+      let alfajores = state.products.filter((p) => p.category !== "combos");
+      if (state.activeCategory !== "all") {
+        alfajores = alfajores.filter((p) => p.category === state.activeCategory || (p.filterTags && p.filterTags.includes(state.activeCategory)));
+      }
+      alfajores = alfajores.filter((p) =>
+        (p.name && p.name.toLowerCase().includes(query)) ||
+        (p.description && p.description.toLowerCase().includes(query)) ||
+        (p.ingredients && p.ingredients.toLowerCase().includes(query)) ||
+        (p.badge && p.badge.toLowerCase().includes(query))
       );
+
+      // Prioridad 2: Cajas y combos (debajo de alfajores individuales)
+      let combos = state.products.filter((p) => p.category === "combos");
+      if (state.activeCategory === "all" || state.activeCategory === "combos") {
+        combos = combos.filter((p) =>
+          (p.name && p.name.toLowerCase().includes(query)) ||
+          (p.description && p.description.toLowerCase().includes(query)) ||
+          (p.ingredients && p.ingredients.toLowerCase().includes(query)) ||
+          (p.badge && p.badge.toLowerCase().includes(query))
+        );
+      } else {
+        combos = [];
+      }
+
+      // Concatenar con orden estricto: alfajores individuales primero, cajas después
+      result = [...alfajores, ...combos];
+    } else {
+      result = state.products.filter((p) => p.category !== "combos");
+      if (state.activeCategory !== "all") {
+        result = result.filter((p) => {
+          if (p.category === state.activeCategory) return true;
+          if (p.filterTags && p.filterTags.includes(state.activeCategory)) return true;
+          return false;
+        });
+      }
     }
 
     // Sort order
@@ -597,12 +726,14 @@
     renderCatalogProducts();
 
     if (state.activeCategory !== "all" || query !== "") {
-      DOM.filterStatus.style.display = "flex";
-      let filterMsg = `Mostrando ${result.length} sabor${result.length === 1 ? "" : "es"}`;
-      if (query) filterMsg += ` para "${state.searchQuery}"`;
-      DOM.filterStatusText.textContent = filterMsg;
+      if (DOM.filterStatus) {
+        DOM.filterStatus.style.display = "flex";
+        let filterMsg = `Mostrando ${result.length} producto${result.length === 1 ? "" : "s"}`;
+        if (query) filterMsg += ` para "${state.searchQuery}"`;
+        if (DOM.filterStatusText) DOM.filterStatusText.textContent = filterMsg;
+      }
     } else {
-      DOM.filterStatus.style.display = "none";
+      if (DOM.filterStatus) DOM.filterStatus.style.display = "none";
     }
   };
 
@@ -1389,6 +1520,13 @@
         if (DOM.catalogSearchInput) DOM.catalogSearchInput.value = state.searchQuery;
         if (DOM.clearSearchBtn) DOM.clearSearchBtn.style.display = state.searchQuery ? "flex" : "none";
         applyFilters();
+        renderSearchSuggestions(state.searchQuery);
+      });
+
+      DOM.searchInput.addEventListener("focus", () => {
+        if (state.searchQuery && state.searchQuery.trim().length > 0) {
+          renderSearchSuggestions(state.searchQuery);
+        }
       });
     }
 
@@ -1396,7 +1534,9 @@
       DOM.catalogSearchInput.addEventListener("input", (e) => {
         state.searchQuery = e.target.value;
         if (DOM.searchInput) DOM.searchInput.value = state.searchQuery;
+        if (DOM.clearSearchBtn) DOM.clearSearchBtn.style.display = state.searchQuery ? "flex" : "none";
         applyFilters();
+        renderSearchSuggestions(state.searchQuery);
       });
     }
 
@@ -1406,6 +1546,7 @@
         if (DOM.catalogSearchInput) DOM.catalogSearchInput.value = "";
         state.searchQuery = "";
         DOM.clearSearchBtn.style.display = "none";
+        closeSearchDropdown();
         applyFilters();
       });
     }
@@ -1416,11 +1557,20 @@
         state.searchQuery = "";
         if (DOM.searchInput) DOM.searchInput.value = "";
         if (DOM.catalogSearchInput) DOM.catalogSearchInput.value = "";
+        if (DOM.clearSearchBtn) DOM.clearSearchBtn.style.display = "none";
+        closeSearchDropdown();
         DOM.filterTabPills.forEach((p) => p.classList.remove("active"));
         if (DOM.filterTabPills[0]) DOM.filterTabPills[0].classList.add("active");
         applyFilters();
       });
     }
+
+    // Close suggestions dropdown on outside click
+    document.addEventListener("click", (e) => {
+      if (DOM.headerSearchWrap && !DOM.headerSearchWrap.contains(e.target)) {
+        closeSearchDropdown();
+      }
+    });
 
     // Filter pill tabs (Wireframe 02)
     DOM.filterTabPills.forEach((pill) => {
@@ -1509,6 +1659,7 @@
         closeCustomBoxModal();
         closeStoryModal();
         closeContactModal();
+        closeSearchDropdown();
         closeOrderSuccessModal();
       }
     });
@@ -1600,6 +1751,12 @@
     openContactModal,
     closeContactModal,
 
+    // Live Search API
+    renderSearchSuggestions,
+    openSearchDropdown,
+    closeSearchDropdown,
+    selectSearchSuggestion,
+
     filterByCategory: (category) => {
       state.activeCategory = category;
       DOM.filterTabPills.forEach((p) => {
@@ -1618,6 +1775,8 @@
       state.activeCategory = "all";
       if (DOM.searchInput) DOM.searchInput.value = "";
       if (DOM.catalogSearchInput) DOM.catalogSearchInput.value = "";
+      if (DOM.clearSearchBtn) DOM.clearSearchBtn.style.display = "none";
+      closeSearchDropdown();
       DOM.filterTabPills.forEach((p) => p.classList.remove("active"));
       if (DOM.filterTabPills[0]) DOM.filterTabPills[0].classList.add("active");
       applyFilters();

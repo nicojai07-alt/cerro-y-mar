@@ -27,10 +27,9 @@
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       
-      <!-- Brand Logo (Dynamic Scroll Shrink: logo 1 initial, logo 2 scrolled) -->
+      <!-- Brand Logo (Only horizontal logo with text to the right) -->
       <a href="#inicio" class="brand-link" aria-label="Cerro y Mar - Inicio">
-        <img src="assets/logo-1.png" alt="Cerro y Mar - Alfajores de Autor" class="brand-header-logo logo-initial">
-        <img src="assets/logo-2.png" alt="Cerro y Mar - Alfajores de Autor" class="brand-header-logo logo-scrolled">
+        <img src="assets/logo-2.png" alt="Cerro y Mar - Alfajores de Autor" class="brand-header-logo header-logo-main">
       </a>
 
       <!-- Primary Navigation Links (Wireframe layout) -->
@@ -46,8 +45,8 @@
       <!-- Utility Header Actions (Search, Cart, User) -->
       <div class="header-utilities">
         
-        <!-- Live Search Input -->
-        <div class="header-search-wrap">
+        <!-- Live Search Input with Dropdown Suggestions -->
+        <div class="header-search-wrap" id="headerSearchWrap">
           <i class="fa-solid fa-magnifying-glass search-trigger-icon"></i>
           <input 
             type="text" 
@@ -60,6 +59,17 @@
           <button id="clearSearchBtn" class="clear-search-btn" title="Borrar búsqueda" style="display:none;">
             <i class="fa-solid fa-xmark"></i>
           </button>
+          
+          <!-- Live Interactive Search Suggestions Dropdown -->
+          <div id="searchSuggestionsDropdown" class="search-suggestions-dropdown" style="display:none;">
+            <div class="suggestions-header" id="suggestionsHeader">
+              <span>Resultados de búsqueda</span>
+            </div>
+            <div class="suggestions-list" id="suggestionsList"></div>
+            <a href="#catalogo" id="suggestionViewAllBtn" class="suggestion-view-all" onclick="app.closeSearchDropdown()">
+              Ver catálogo completo
+            </a>
+          </div>
         </div>
 
         <!-- Custom Box Builder Quick Trigger -->
@@ -162,15 +172,6 @@
 
   <!-- ================= SECCIÓN: WIREFRAME 03 - SOBRE NOSOTROS & NUESTRA HISTORIA ================= -->
   <section class="section-brand-story" id="nosotros">
-    <!-- Header Hero Banner de Wireframe 3 -->
-    <div class="story-hero-banner">
-      <div class="container story-hero-inner">
-        <span class="story-hero-badge">Identidad Patagónica</span>
-        <h2 class="story-hero-title">Entre el cerro y el mar nace nuestra pasión</h2>
-        <p class="story-hero-subtitle">Alfajores artesanales con el sabor distintivo de nuestra región.</p>
-      </div>
-    </div>
-
     <!-- Layout Editorial 2 Columnas de Wireframe 3 -->
     <div class="container story-content-container">
       <div class="story-section-header">
