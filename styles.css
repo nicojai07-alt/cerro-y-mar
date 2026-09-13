@@ -2985,7 +2985,10 @@ a {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 220px !important;
+  max-width: 100% !important;
   gap: 16px;
+  margin: 0 auto;
 }
 
 .footer-logo-wrap, .footer-logo-container {
@@ -2993,7 +2996,8 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
   margin-bottom: 0;
   padding: 0;
 }
@@ -3004,7 +3008,7 @@ a {
 .footer-brand img,
 .footer-logo-wrap img,
 .footer-logo-container img {
-  width: 140px !important;
+  width: 180px !important;
   max-width: none !important;
   max-height: none !important;
   height: auto !important;
