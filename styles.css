@@ -865,7 +865,7 @@ a {
 .card-price-action-row {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.55rem;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(0, 79, 104, 0.1);
   width: 100%;
@@ -876,6 +876,14 @@ a {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  gap: 0.5rem;
+}
+
+.card-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
 }
 
 .flavor-card-price,
@@ -883,6 +891,57 @@ a {
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--petroleum-blue);
+  letter-spacing: -0.01em;
+}
+
+.card-btn-pill-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--petroleum-blue);
+  color: var(--bg-sand);
+  border: 1px solid var(--petroleum-blue);
+  padding: 0.45rem 0.95rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 79, 104, 0.15);
+}
+
+.card-btn-pill-primary:hover {
+  background: var(--petroleum-blue-dark);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 79, 104, 0.25);
+}
+
+.card-btn-build-box-secondary {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: transparent;
+  color: var(--petroleum-blue);
+  border: 1.5px solid var(--petroleum-blue);
+  padding: 0.42rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.card-btn-build-box-secondary:hover {
+  background: var(--petroleum-blue);
+  color: var(--bg-sand);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 79, 104, 0.18);
 }
 
 .card-btns-group {
@@ -902,7 +961,7 @@ a {
   color: var(--bg-sand);
   border: 1px solid var(--petroleum-blue);
   padding: 0.45rem 0.5rem;
-  border-radius: var(--radius-full);
+  border-radius: 50px;
   font-size: 0.78rem;
   font-weight: 700;
   transition: var(--transition-fast);
@@ -926,7 +985,7 @@ a {
   color: var(--petroleum-blue);
   border: 1.5px solid var(--petroleum-blue);
   padding: 0.42rem 0.5rem;
-  border-radius: var(--radius-full);
+  border-radius: 50px;
   font-size: 0.74rem;
   font-weight: 700;
   transition: var(--transition-fast);
@@ -944,12 +1003,13 @@ a {
 .btn-build-box-detail {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   background: var(--bg-sand-light);
   color: var(--petroleum-blue);
   border: 1.5px solid var(--petroleum-blue);
   padding: 0.85rem 1.35rem;
-  border-radius: var(--radius-full);
+  border-radius: 50px;
   font-size: 0.9rem;
   font-weight: 700;
   transition: var(--transition-fast);
@@ -961,6 +1021,7 @@ a {
   background: var(--petroleum-blue);
   color: var(--bg-sand);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 79, 104, 0.2);
 }
 
 .flavor-card-btn,
@@ -977,6 +1038,15 @@ a {
   background: #FFFFFF;
   transition: var(--transition-fast);
   cursor: pointer;
+  flex-shrink: 0;
+}
+
+.flavor-card-btn:hover,
+.card-circle-action-btn:hover {
+  background: var(--petroleum-blue);
+  border-color: var(--petroleum-blue);
+  color: var(--bg-sand);
+  transform: translateX(2px);
 }
 
 .flavor-editorial-card:hover .flavor-card-btn,
@@ -1543,8 +1613,9 @@ a {
 .detail-cta-row {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem;
   margin-bottom: 1.75rem;
+  flex-wrap: wrap;
 }
 
 .qty-stepper-box {
@@ -1552,19 +1623,25 @@ a {
   align-items: center;
   background: var(--bg-sand-light);
   border: 1.5px solid var(--border-editorial);
-  border-radius: var(--radius-full);
-  padding: 0.3rem 0.5rem;
+  border-radius: 50px;
+  padding: 0.25rem 0.5rem;
+  flex-shrink: 0;
+  height: 48px;
+  box-sizing: border-box;
 }
 
 .stepper-btn {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   color: var(--petroleum-blue);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.85rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
   transition: var(--transition-fast);
 }
 
@@ -1574,14 +1651,18 @@ a {
 }
 
 .stepper-val {
-  min-width: 30px;
+  min-width: 32px;
   text-align: center;
   font-weight: 700;
+  font-size: 1rem;
   color: var(--petroleum-blue);
+  user-select: none;
 }
 
 .btn-add-cart-solid {
   flex: 1;
+  min-width: 190px;
+  height: 48px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1590,13 +1671,19 @@ a {
   color: var(--bg-sand);
   font-size: 0.95rem;
   font-weight: 700;
-  padding: 0.85rem 1.5rem;
-  border-radius: var(--radius-full);
+  padding: 0 1.6rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
   transition: var(--transition-base);
+  box-shadow: 0 4px 14px rgba(0, 79, 104, 0.2);
 }
 
 .btn-add-cart-solid:hover {
   background-color: var(--petroleum-blue-dark);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 79, 104, 0.3);
 }
 
 .product-feature-badges-row {

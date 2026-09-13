@@ -368,6 +368,7 @@
       modalQtyPlus: document.getElementById("modalQtyPlus"),
       modalQtyValue: document.getElementById("modalQtyValue"),
       modalAddToCartBtn: document.getElementById("modalAddToCartBtn"),
+      modalBuildBoxBtn: document.getElementById("modalBuildBoxBtn"),
       relatedProductsGrid: document.getElementById("relatedProductsGrid"),
 
       // Confirmation Modal
@@ -484,20 +485,20 @@
           <div class="card-price-action-row flavor-card-footer">
             <div class="card-footer-top-row">
               <span class="card-price-amount flavor-card-price">${formatCurrency(p.price)}</span>
-              <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
+              <div class="card-top-actions">
+                <button class="card-btn-pill-primary" title="Comprar" onclick="event.stopPropagation(); app.quickAddToCart('${p.id}')">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                  <span>Comprar</span>
+                </button>
+                <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
             </div>
-            <div class="card-btns-group">
-              <button class="card-btn-quick-add" title="Agregar al carrito" onclick="event.stopPropagation(); app.quickAddToCart('${p.id}')">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <span>Agregar</span>
-              </button>
-              <button class="card-btn-build-box" title="Armar caja con este alfajor" onclick="event.stopPropagation(); app.startBoxWithFlavor('${p.id}')">
-                <i class="fa-solid fa-boxes-stacked"></i>
-                <span>Armar caja</span>
-              </button>
-            </div>
+            <button class="card-btn-build-box-secondary" title="Armar caja con este alfajor" onclick="event.stopPropagation(); app.startBoxWithFlavor('${p.id}')">
+              <i class="fa-solid fa-boxes-stacked"></i>
+              <span>Armar caja con este alfajor</span>
+            </button>
           </div>
         </div>
       </article>
@@ -527,22 +528,22 @@
           <div class="card-price-action-row flavor-card-footer">
             <div class="card-footer-top-row">
               <span class="card-price-amount flavor-card-price">${formatCurrency(p.price)}</span>
-              <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
+              <div class="card-top-actions">
+                <button class="card-btn-pill-primary" title="${p.category === 'combos' ? 'Comprar caja' : 'Comprar'}" onclick="event.stopPropagation(); app.quickAddToCart('${p.id}')">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                  <span>${p.category === 'combos' ? 'Comprar caja' : 'Comprar'}</span>
+                </button>
+                <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
             </div>
-            <div class="card-btns-group">
-              <button class="card-btn-quick-add" title="${p.category === 'combos' ? 'Comprar caja' : 'Agregar al carrito'}" onclick="event.stopPropagation(); app.quickAddToCart('${p.id}')">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <span>${p.category === 'combos' ? 'Comprar caja' : 'Agregar'}</span>
-              </button>
-              ${p.category !== 'combos' ? `
-              <button class="card-btn-build-box" title="Armar caja con este alfajor" onclick="event.stopPropagation(); app.startBoxWithFlavor('${p.id}')">
-                <i class="fa-solid fa-boxes-stacked"></i>
-                <span>Armar caja</span>
-              </button>
-              ` : ''}
-            </div>
+            ${p.category !== 'combos' ? `
+            <button class="card-btn-build-box-secondary" title="Armar caja con este alfajor" onclick="event.stopPropagation(); app.startBoxWithFlavor('${p.id}')">
+              <i class="fa-solid fa-boxes-stacked"></i>
+              <span>Armar caja con este alfajor</span>
+            </button>
+            ` : ''}
           </div>
         </div>
       </article>
@@ -566,15 +567,15 @@
           <div class="card-price-action-row flavor-card-footer">
             <div class="card-footer-top-row">
               <span class="card-price-amount flavor-card-price">${formatCurrency(b.price)}</span>
-              <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${b.id}')">
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
-            <div class="card-btns-group">
-              <button class="card-btn-quick-add" title="Comprar caja" onclick="event.stopPropagation(); app.quickAddToCart('${b.id}')" style="width:100%;">
-                <i class="fa-solid fa-bag-shopping"></i>
-                <span>Comprar caja</span>
-              </button>
+              <div class="card-top-actions">
+                <button class="card-btn-pill-primary" title="Comprar caja" onclick="event.stopPropagation(); app.quickAddToCart('${b.id}')">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                  <span>Comprar</span>
+                </button>
+                <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${b.id}')">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -862,6 +863,10 @@
         </div>
       </div>
     `).join("");
+
+    if (DOM.modalBuildBoxBtn) {
+      DOM.modalBuildBoxBtn.style.display = product.category === "combos" ? "none" : "inline-flex";
+    }
 
     DOM.productDetailModal.classList.add("show");
     DOM.productDetailModal.setAttribute("aria-hidden", "false");
