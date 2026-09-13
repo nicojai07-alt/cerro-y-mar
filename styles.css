@@ -148,15 +148,41 @@ a {
   transition: all 0.3s ease;
 }
 
-/* HEADER LOGO: Únicamente Logo Horizontal con letras al lado derecho */
-.site-header .brand-header-logo {
-  display: block !important;
-  height: 52px;
-  max-height: 56px;
-  width: auto;
-  transform: scale(1.1);
+/* ================= HEADER BRAND LOGO COMPOSITE (+40%) & SCROLL ANIMATION ================= */
+.header-logo-composite {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  transform: scale(1.4);
   transform-origin: left center;
-  transition: all 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.logo-emblem-img {
+  height: 48px;
+  max-height: 52px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(0deg);
+  will-change: transform;
+}
+
+.logo-text-img {
+  height: 32px;
+  max-height: 34px;
+  width: auto;
+  object-fit: contain;
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+  will-change: transform, opacity;
+}
+
+/* Scroll Active State (window.scrollY > 50) */
+.site-header {
+  transition: padding 0.4s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .site-header.scrolled {
@@ -164,18 +190,31 @@ a {
 }
 
 .site-header.scrolled .header-inner {
-  height: 68px; /* Barra reducida al hacer scroll suave */
-  padding: 0.25rem 0;
+  height: 64px; /* Barra reducida al hacer scroll */
+  padding: 0.15rem 0;
+  transition: height 0.4s ease, padding 0.4s ease;
 }
 
-.site-header.scrolled .brand-header-logo {
-  height: 44px;
-  max-height: 46px;
-  transform: scale(1.05);
+.site-header.scrolled .header-logo-composite {
+  transform: scale(1.25);
 }
 
-.brand-link:hover .brand-header-logo {
-  transform: scale(1.14);
+.site-header.scrolled .logo-text-img {
+  transform: translateX(-30px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.site-header.scrolled .logo-emblem-img {
+  transform: rotate(-360deg);
+}
+
+.brand-link:hover .header-logo-composite {
+  transform: scale(1.44);
+}
+
+.site-header.scrolled .brand-link:hover .header-logo-composite {
+  transform: scale(1.29);
 }
 
 /* Navigation Menu */
@@ -872,12 +911,58 @@ a {
   font-weight: 700;
   transition: var(--transition-fast);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .card-btn-quick-add:hover {
   background: var(--petroleum-blue-dark);
   color: #FFFFFF;
   transform: translateY(-1px);
+}
+
+.card-btn-build-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--bg-sand-light);
+  color: var(--petroleum-blue);
+  border: 1.5px solid var(--petroleum-blue);
+  padding: 0.42rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.76rem;
+  font-weight: 700;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.card-btn-build-box:hover {
+  background: var(--petroleum-blue);
+  color: var(--bg-sand);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 79, 104, 0.2);
+}
+
+.btn-build-box-detail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-sand-light);
+  color: var(--petroleum-blue);
+  border: 1.5px solid var(--petroleum-blue);
+  padding: 0.85rem 1.35rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-build-box-detail:hover {
+  background: var(--petroleum-blue);
+  color: var(--bg-sand);
+  transform: translateY(-2px);
 }
 
 .flavor-card-btn,

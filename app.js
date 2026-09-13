@@ -488,6 +488,10 @@
                 <i class="fa-solid fa-bag-shopping"></i>
                 <span>Agregar</span>
               </button>
+              <button class="card-btn-build-box" title="Armar caja con este alfajor" onclick="event.stopPropagation(); app.startBoxWithFlavor('${p.id}')">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span>Armar caja</span>
+              </button>
               <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
@@ -510,7 +514,7 @@
     DOM.emptyCatalogState.style.display = "none";
 
     DOM.productsGrid.innerHTML = state.filteredProducts.map((p) => `
-      <article class="wireframe-product-card flavor-editorial-card" onclick="app.openProductModal('${p.id}')">
+      <article class="wireframe-product-card flavor-editorial-card ${p.category === 'combos' ? 'premium-box-card' : ''}" onclick="app.openProductModal('${p.id}')">
         <div class="card-image-box flavor-card-media">
           <span class="card-badge-pill flavor-tag-pill">${p.badge}</span>
           <img src="${p.image}" alt="${p.name}" loading="lazy">
@@ -521,10 +525,16 @@
           <div class="card-price-action-row flavor-card-footer">
             <span class="card-price-amount flavor-card-price">${formatCurrency(p.price)}</span>
             <div class="card-btns-group">
-              <button class="card-btn-quick-add" title="Agregar al carrito" onclick="event.stopPropagation(); app.quickAddToCart('${p.id}')">
+              <button class="card-btn-quick-add" title="${p.category === 'combos' ? 'Comprar caja' : 'Agregar al carrito'}" onclick="event.stopPropagation(); app.quickAddToCart('${p.id}')">
                 <i class="fa-solid fa-bag-shopping"></i>
-                <span>Agregar</span>
+                <span>${p.category === 'combos' ? 'Comprar' : 'Agregar'}</span>
               </button>
+              ${p.category !== 'combos' ? `
+              <button class="card-btn-build-box" title="Armar caja con este alfajor" onclick="event.stopPropagation(); app.startBoxWithFlavor('${p.id}')">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span>Armar caja</span>
+              </button>
+              ` : ''}
               <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
@@ -566,7 +576,81 @@
     `).join("");
   };
 
-  // ================= LIVE SEARCH & AUTOCOMPLETE WITH PRIORITIZATION =================
+  // ================= BOX SHORTCUT WITH SPECIFIC FLAVOR =================
+  const startBoxWithFlavor = (productId) => {
+    const flavor = state.products.find((p) => p.id === productId);
+    if (!flavor) return;
+
+    openCustomBoxModal();
+    addFlavorToBox(flavor.name, flavor.badge, flavor.image, flavor.id);
+    showToast(`¡Agregamos "${flavor.name}" a tu caja personalizada!`, "success");
+  };
+
+  const startBoxWithCurrentModalProduct = () => {
+    if (state.currentModalProduct) {
+      const pid = state.currentModalProduct.id;
+      closeProductModal();
+      startBoxWithFlavor(pid);
+    }
+  };
+
+  // ================= LIVE SEARCH & AUTOCOMPLETE WITH INITIAL-LETTER PRIORITIZATION =================
+  const normalizeSearchText = (str) => {
+    return (str || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+  };
+
+  const getFilteredAndPrioritizedProducts = (queryStr) => {
+    const q = normalizeSearchText(queryStr);
+    if (!q) return { alfajores: [], combos: [], all: [] };
+
+    // 1. TIER 1: Alfajores cuyo nombre EMPIEZA con la letra o término buscado (ej: "C" -> Calafate, Chocovegan)
+    const alfajoresStarts = state.products.filter(
+      (p) => p.category !== "combos" && normalizeSearchText(p.name).startsWith(q)
+    );
+
+    // 2. TIER 2: Alfajores que CONTIENEN la búsqueda en el resto del nombre, descripción o ingredientes
+    const alfajoresContains = state.products.filter(
+      (p) =>
+        p.category !== "combos" &&
+        !normalizeSearchText(p.name).startsWith(q) &&
+        (normalizeSearchText(p.name).includes(q) ||
+          normalizeSearchText(p.description).includes(q) ||
+          normalizeSearchText(p.ingredients).includes(q) ||
+          normalizeSearchText(p.badge).includes(q) ||
+          (p.filterTags && p.filterTags.some((t) => normalizeSearchText(t).includes(q))))
+    );
+
+    const prioritizedAlfajores = [...alfajoresStarts, ...alfajoresContains];
+
+    // 3. TIER 3: Cajas y combos cuyo nombre EMPIEZA con la búsqueda
+    const combosStarts = state.products.filter(
+      (p) => p.category === "combos" && normalizeSearchText(p.name).startsWith(q)
+    );
+
+    // 4. TIER 4: Cajas y combos que CONTIENEN la búsqueda
+    const combosContains = state.products.filter(
+      (p) =>
+        p.category === "combos" &&
+        !normalizeSearchText(p.name).startsWith(q) &&
+        (normalizeSearchText(p.name).includes(q) ||
+          normalizeSearchText(p.description).includes(q) ||
+          normalizeSearchText(p.ingredients).includes(q) ||
+          normalizeSearchText(p.badge).includes(q))
+    );
+
+    const prioritizedCombos = [...combosStarts, ...combosContains];
+
+    return {
+      alfajores: prioritizedAlfajores,
+      combos: prioritizedCombos,
+      all: [...prioritizedAlfajores, ...prioritizedCombos]
+    };
+  };
+
   const closeSearchDropdown = () => {
     if (DOM.searchSuggestionsDropdown) {
       DOM.searchSuggestionsDropdown.style.display = "none";
@@ -586,27 +670,15 @@
 
   const renderSearchSuggestions = (queryStr) => {
     if (!DOM.searchSuggestionsDropdown || !DOM.suggestionsList) return;
-    const query = (queryStr || "").toLowerCase().trim();
+    const query = (queryStr || "").trim();
 
     if (query === "") {
       closeSearchDropdown();
       return;
     }
 
-    const allMatches = state.products.filter((p) => {
-      const matchName = p.name && p.name.toLowerCase().includes(query);
-      const matchDesc = p.description && p.description.toLowerCase().includes(query);
-      const matchBadge = p.badge && p.badge.toLowerCase().includes(query);
-      const matchIng = p.ingredients && p.ingredients.toLowerCase().includes(query);
-      const matchCategory = p.category && p.category.toLowerCase().includes(query);
-      const matchTags = p.filterTags && p.filterTags.some((t) => t.toLowerCase().includes(query));
-      return matchName || matchDesc || matchBadge || matchIng || matchCategory || matchTags;
-    });
-
-    // PRIORIDAD ESTRICTA: 1) Alfajores individuales primero, 2) Cajas y combos después
-    const matchingAlfajores = allMatches.filter((p) => p.category !== "combos");
-    const matchingCombos = allMatches.filter((p) => p.category === "combos");
-    const totalCount = matchingAlfajores.length + matchingCombos.length;
+    const { alfajores, combos, all } = getFilteredAndPrioritizedProducts(query);
+    const totalCount = all.length;
 
     if (DOM.suggestionsHeader) {
       DOM.suggestionsHeader.innerHTML = `<span>${totalCount} resultado${totalCount === 1 ? "" : "s"} para "${queryStr}"</span>`;
@@ -617,7 +689,7 @@
         <div class="suggestion-empty">
           <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5rem; color: #CBD5E1;"></i>
           <span>No encontramos sabores para "<strong>${queryStr}</strong>"</span>
-          <span style="font-size: 0.75rem; color: #94A3B8;">Probá buscando "Pistacho", "Frambuesa", "Oro Negro" o "Cajas"</span>
+          <span style="font-size: 0.75rem; color: #94A3B8;">Probá buscando "Calafate", "Choco", "Pistacho", "Frambuesa" o "Cajas"</span>
         </div>
       `;
       DOM.searchSuggestionsDropdown.style.display = "flex";
@@ -626,10 +698,10 @@
 
     let html = "";
 
-    // 1. Grupo: Alfajores de Autor (Prioritarios)
-    if (matchingAlfajores.length > 0) {
-      html += `<div class="suggestions-group-title"><i class="fa-solid fa-cookie"></i> Alfajores de Autor (${matchingAlfajores.length})</div>`;
-      html += matchingAlfajores.map((p) => `
+    // 1. Grupo: Alfajores de Autor (Prioritarios, primero por letra inicial)
+    if (alfajores.length > 0) {
+      html += `<div class="suggestions-group-title"><i class="fa-solid fa-cookie"></i> Alfajores de Autor (${alfajores.length})</div>`;
+      html += alfajores.map((p) => `
         <div class="suggestion-item" onclick="app.selectSearchSuggestion('${p.id}')">
           <img src="${p.image}" alt="${p.name}" class="suggestion-thumb" loading="lazy">
           <div class="suggestion-info">
@@ -646,10 +718,10 @@
       `).join("");
     }
 
-    // 2. Grupo: Cajas y Colecciones (Debajo de los alfajores)
-    if (matchingCombos.length > 0) {
-      html += `<div class="suggestions-group-title"><i class="fa-solid fa-boxes-stacked"></i> Cajas & Presentaciones (${matchingCombos.length})</div>`;
-      html += matchingCombos.map((p) => `
+    // 2. Grupo: Cajas y Colecciones (Debajo de los alfajores individuales)
+    if (combos.length > 0) {
+      html += `<div class="suggestions-group-title"><i class="fa-solid fa-boxes-stacked"></i> Cajas & Presentaciones (${combos.length})</div>`;
+      html += combos.map((p) => `
         <div class="suggestion-item" onclick="app.selectSearchSuggestion('${p.id}')">
           <img src="${p.image}" alt="${p.name}" class="suggestion-thumb" loading="lazy">
           <div class="suggestion-info">
@@ -671,37 +743,26 @@
   };
 
   const applyFilters = () => {
-    const query = state.searchQuery.toLowerCase().trim();
+    const query = state.searchQuery.trim();
     let result = [];
 
     if (query !== "") {
-      // Prioridad 1: Alfajores individuales que coincidan
-      let alfajores = state.products.filter((p) => p.category !== "combos");
+      const { alfajores, combos } = getFilteredAndPrioritizedProducts(query);
+      
+      let filteredAlfajores = alfajores;
       if (state.activeCategory !== "all") {
-        alfajores = alfajores.filter((p) => p.category === state.activeCategory || (p.filterTags && p.filterTags.includes(state.activeCategory)));
-      }
-      alfajores = alfajores.filter((p) =>
-        (p.name && p.name.toLowerCase().includes(query)) ||
-        (p.description && p.description.toLowerCase().includes(query)) ||
-        (p.ingredients && p.ingredients.toLowerCase().includes(query)) ||
-        (p.badge && p.badge.toLowerCase().includes(query))
-      );
-
-      // Prioridad 2: Cajas y combos (debajo de alfajores individuales)
-      let combos = state.products.filter((p) => p.category === "combos");
-      if (state.activeCategory === "all" || state.activeCategory === "combos") {
-        combos = combos.filter((p) =>
-          (p.name && p.name.toLowerCase().includes(query)) ||
-          (p.description && p.description.toLowerCase().includes(query)) ||
-          (p.ingredients && p.ingredients.toLowerCase().includes(query)) ||
-          (p.badge && p.badge.toLowerCase().includes(query))
+        filteredAlfajores = filteredAlfajores.filter((p) => 
+          p.category === state.activeCategory || (p.filterTags && p.filterTags.includes(state.activeCategory))
         );
-      } else {
-        combos = [];
       }
 
-      // Concatenar con orden estricto: alfajores individuales primero, cajas después
-      result = [...alfajores, ...combos];
+      let filteredCombos = [];
+      if (state.activeCategory === "all" || state.activeCategory === "combos") {
+        filteredCombos = combos;
+      }
+
+      // Prioridad estricta: Alfajores (ordenados por letra inicial) primero, Cajas después
+      result = [...filteredAlfajores, ...filteredCombos];
     } else {
       result = state.products.filter((p) => p.category !== "combos");
       if (state.activeCategory !== "all") {
@@ -713,7 +774,7 @@
       }
     }
 
-    // Sort order
+    // Sort order (unless filtering by live initial letter where initial priority is retained)
     if (state.currentSort === "price-asc") {
       result.sort((a, b) => a.price - b.price);
     } else if (state.currentSort === "price-desc") {
@@ -729,7 +790,7 @@
       if (DOM.filterStatus) {
         DOM.filterStatus.style.display = "flex";
         let filterMsg = `Mostrando ${result.length} producto${result.length === 1 ? "" : "s"}`;
-        if (query) filterMsg += ` para "${state.searchQuery}"`;
+        if (query) filterMsg += ` para "${state.searchQuery}" (Prioridad letra inicial)`;
         if (DOM.filterStatusText) DOM.filterStatusText.textContent = filterMsg;
       }
     } else {
@@ -1501,10 +1562,10 @@
     let isScrolled = false;
     const handleScroll = () => {
       const currentScrollY = window.scrollY || window.pageYOffset || 0;
-      if (currentScrollY > 60 && !isScrolled) {
+      if (currentScrollY > 50 && !isScrolled) {
         isScrolled = true;
         DOM.siteHeader.classList.add("scrolled");
-      } else if (currentScrollY <= 30 && isScrolled) {
+      } else if (currentScrollY <= 50 && isScrolled) {
         isScrolled = false;
         DOM.siteHeader.classList.remove("scrolled");
       }
@@ -1722,6 +1783,8 @@
     removeFlavorFromBox,
     removeFlavorById,
     addCustomBoxToCart,
+    startBoxWithFlavor,
+    startBoxWithCurrentModalProduct,
 
     openProductModal,
     closeProductModal,

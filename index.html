@@ -27,9 +27,12 @@
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       
-      <!-- Brand Logo (Only horizontal logo with text to the right) -->
+      <!-- Brand Logo (Composite Emblem + Typography for Interactive Scroll Animation) -->
       <a href="#inicio" class="brand-link" aria-label="Cerro y Mar - Inicio">
-        <img src="assets/logo-2.png" alt="Cerro y Mar - Alfajores de Autor" class="brand-header-logo header-logo-main">
+        <div class="header-logo-composite">
+          <img src="assets/logo-emblem.png" alt="Emblema Cerro y Mar" class="logo-emblem-img">
+          <img src="assets/logo-text.png" alt="Cerro y Mar" class="logo-text-img">
+        </div>
       </a>
 
       <!-- Primary Navigation Links (Wireframe layout) -->
@@ -374,6 +377,11 @@
               <button class="btn-add-cart-solid" id="modalAddToCartBtn">
                 <i class="fa-solid fa-bag-shopping"></i>
                 <span>Agregar al carrito</span>
+              </button>
+
+              <button class="btn-build-box-detail" id="modalBuildBoxBtn" onclick="app.startBoxWithCurrentModalProduct()" title="Armar caja con este alfajor">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span>Armar caja</span>
               </button>
             </div>
 
