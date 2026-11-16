@@ -3413,14 +3413,18 @@ a {
 .mobile-nav-drawer {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 2500;
+  display: none;
+  overflow: hidden;
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .mobile-nav-drawer.open {
+  display: block;
   pointer-events: auto;
   opacity: 1;
   visibility: visible;
@@ -4151,23 +4155,21 @@ a {
     margin-bottom: 1.25rem;
   }
   .catalog-pills-nav {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    gap: 0.5rem;
-    margin: 0 -0.85rem;
-    padding: 4px 0.85rem 8px;
-    scrollbar-width: none;
-  }
-  .catalog-pills-nav::-webkit-scrollbar {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
   }
   .filter-pill-btn {
-    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
     white-space: nowrap;
-    padding: 0.6rem 1.15rem;
+    padding: 0.7rem 0.65rem;
     font-size: 0.95rem;
+    min-height: 44px;
   }
   .filter-feedback-row,
   .btn-reset-filters {
@@ -4267,149 +4269,177 @@ a {
     flex-shrink: 0;
   }
   .gallery-main-view {
-    height: 230px;
+    flex: none !important;
+    width: 100%;
+    height: 240px;
   }
   .detail-badge-pill {
-    font-size: 0.85rem;
-    padding: 0.3rem 0.85rem;
+    font-size: 0.88rem;
+    padding: 0.35rem 0.9rem;
   }
   .detail-product-name {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     margin-bottom: 0.5rem;
   }
   .detail-product-desc {
-    font-size: 1rem;
-    line-height: 1.58;
-    margin-bottom: 1rem;
-  }
-  .detail-price-line {
+    font-size: 1.05rem;
+    line-height: 1.62;
     margin-bottom: 1.1rem;
   }
+  .detail-price-line {
+    margin-bottom: 1.15rem;
+  }
   .detail-main-price {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
   .detail-price-sub {
-    font-size: 0.92rem;
+    font-size: 0.98rem;
   }
   .detail-cta-row {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.65rem;
-    margin-bottom: 1.25rem;
+    gap: 0.7rem;
+    margin-bottom: 1.35rem;
   }
   .qty-stepper-box {
+    flex: none !important;
     justify-content: center;
-    height: 46px;
+    height: 48px;
   }
   .stepper-val {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
   .btn-add-cart-solid {
+    flex: none !important;
     width: 100%;
-    height: 48px;
-    font-size: 1rem;
-    padding: 0 1rem;
+    min-height: 52px;
+    height: 52px;
+    font-size: 1.05rem;
+    padding: 0 1.25rem;
   }
   .btn-build-box-detail {
+    flex: none !important;
     width: 100%;
-    height: 46px;
+    min-height: 48px;
+    height: 48px;
     justify-content: center;
-    font-size: 0.95rem;
-    padding: 0.5rem;
+    font-size: 1rem;
+    padding: 0.6rem;
   }
   .product-feature-badges-row {
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.55rem;
   }
   .feature-badge-item {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+    padding: 0.45rem 0.8rem;
   }
   .product-tabs-nav {
-    gap: 1rem;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-  }
-  .product-tabs-nav::-webkit-scrollbar {
-    display: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    overflow: visible;
+    white-space: normal;
+    border-bottom: none;
   }
   .tab-btn {
-    font-size: 0.95rem;
-    flex-shrink: 0;
+    font-size: 0.98rem;
+    text-align: left;
+    padding: 0.65rem 0.9rem;
+    border-radius: var(--radius-sm);
+    background: var(--bg-sand-light);
+    border: 1.5px solid var(--border-editorial);
+    margin-bottom: 0;
+  }
+  .tab-btn.active {
+    background: var(--petroleum-blue);
+    color: var(--bg-sand);
+    border-color: var(--petroleum-blue);
   }
   .tab-content {
-    font-size: 0.98rem;
-    line-height: 1.6;
+    font-size: 1.02rem;
+    line-height: 1.65;
   }
   .related-heading {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
   .related-products-grid h4 {
-    font-size: 0.98rem !important;
+    font-size: 1rem !important;
   }
   .related-products-grid strong {
-    font-size: 1.05rem !important;
+    font-size: 1.08rem !important;
   }
 
   /* Custom Box Builder Modal Mobile */
   .box-builder-header {
-    margin-bottom: 1.15rem;
+    margin-bottom: 1.25rem;
   }
   .builder-badge {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
   }
   .builder-title {
-    font-size: 1.55rem;
+    font-size: 1.65rem;
   }
   .builder-subtitle {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
   .step-title {
-    font-size: 1.12rem;
+    font-size: 1.15rem;
   }
   .box-size-selector-grid {
     grid-template-columns: 1fr;
-    gap: 0.6rem;
+    gap: 0.75rem;
   }
   .box-size-card {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    padding: 0.85rem 1rem;
+    gap: 0.25rem 0.85rem;
+    padding: 1rem 1.15rem;
     text-align: left;
   }
-  .box-size-name,
-  .box-size-price {
-    font-size: 1.15rem;
+  .box-size-name {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 1.2rem;
+    white-space: nowrap;
   }
   .box-size-desc {
+    grid-column: 1;
+    grid-row: 2;
     margin: 0;
-    font-size: 0.88rem;
+    font-size: 0.92rem;
+  }
+  .box-size-price {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    font-size: 1.25rem;
+    white-space: nowrap;
+    text-align: right;
   }
   .slots-header-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.4rem;
+    gap: 0.45rem;
   }
   .box-slots-status {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
   }
   .slot-item-chip,
   .slot-empty-placeholder {
-    font-size: 0.88rem;
+    font-size: 0.92rem;
   }
   .flavors-picker-list {
     grid-template-columns: 1fr;
-    gap: 0.55rem;
-    max-height: 260px;
+    gap: 0.6rem;
+    max-height: 280px;
     overflow-y: auto;
   }
   .flavor-picker-name {
-    font-size: 0.98rem;
+    font-size: 1.02rem;
   }
   .flavor-picker-tag {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
   }
   .box-builder-footer {
     flex-direction: column;
@@ -4418,14 +4448,16 @@ a {
     gap: 0.75rem;
   }
   .builder-total-label {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
   }
   .btn-add-custom-box {
+    flex: none !important;
     max-width: 100%;
     width: 100%;
-    font-size: 1rem;
-    padding: 0.9rem;
-    min-height: 48px;
+    font-size: 1.02rem;
+    padding: 0.95rem;
+    min-height: 52px;
+    height: 52px;
   }
 
   /* Story / Nosotros Modal Mobile */
