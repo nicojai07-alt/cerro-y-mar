@@ -1756,16 +1756,7 @@
       });
     }
 
-    // Mobile Navigation Drawer Events
-    if (DOM.mobileMenuToggleBtn) {
-      DOM.mobileMenuToggleBtn.addEventListener("click", toggleMobileMenu);
-    }
-    if (DOM.closeMobileNavBtn) {
-      DOM.closeMobileNavBtn.addEventListener("click", closeMobileMenu);
-    }
-    if (DOM.mobileNavBackdrop) {
-      DOM.mobileNavBackdrop.addEventListener("click", closeMobileMenu);
-    }
+    // Mobile Navigation Search Input (toggle/close handled via inline onclick in index.html to prevent double-trigger)
     if (DOM.mobileSearchInput) {
       DOM.mobileSearchInput.addEventListener("input", (e) => {
         state.searchQuery = e.target.value;

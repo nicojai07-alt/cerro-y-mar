@@ -3906,86 +3906,87 @@ a {
     gap: 0.35rem;
   }
 
-  /* Hero Section Compact & Balanced */
+  /* Hero Section Readable & Balanced */
   .hero-editorial-grid {
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
   .editorial-eyebrow {
-    font-size: 0.68rem;
+    font-size: 0.78rem;
     letter-spacing: 0.1em;
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.55rem;
   }
   .hero-headline {
-    font-size: clamp(1.6rem, 6vw, 2.05rem);
-    line-height: 1.16;
-    margin-bottom: 0.65rem;
+    font-size: clamp(1.8rem, 6.8vw, 2.25rem);
+    line-height: 1.18;
+    margin-bottom: 0.85rem;
   }
   .hero-headline br {
     display: none;
   }
   .hero-subtext {
-    font-size: 0.85rem;
-    line-height: 1.5;
-    margin-bottom: 1.1rem;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin-bottom: 1.35rem;
   }
   .hero-actions-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
     width: 100%;
   }
   .hero-actions-group .btn-solid-primary,
   .hero-actions-group .btn-outline-primary {
     width: 100%;
-    padding: 0.7rem 0.5rem;
-    font-size: 0.78rem;
-    gap: 0.4rem;
-    white-space: nowrap;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    gap: 0.55rem;
+    min-height: 48px;
   }
   .editorial-card-wrapper {
-    padding: 0.6rem;
+    padding: 0.75rem;
     max-width: 100%;
     margin: 0 auto;
     border-radius: var(--radius-md);
   }
   .editorial-main-image {
-    height: 200px;
+    height: 220px;
     border-radius: var(--radius-sm);
   }
   .editorial-badge {
-    top: 1rem;
-    left: 1rem;
-    font-size: 0.66rem;
-    padding: 0.25rem 0.65rem;
+    top: 1.15rem;
+    left: 1.15rem;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.75rem;
   }
 
   /* Section Titles */
   .section-editorial-header {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
   .section-editorial-title,
   .catalog-section-title,
   .story-section-heading {
-    font-size: clamp(1.45rem, 5vw, 1.85rem);
+    font-size: clamp(1.65rem, 5.5vw, 2rem);
     letter-spacing: -0.02em;
     line-height: 1.2;
+    margin-bottom: 0.45rem;
   }
   .section-editorial-subtitle,
   .catalog-section-desc,
   .story-section-lead {
-    font-size: 0.84rem;
-    line-height: 1.45;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
   .story-section-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
   }
 
-  /* 2-Column Mobile Product Grids (E-commerce Standard: 2 products per row) */
+  /* 1-Column Readable Product Cards with Wide 16:10 Image (Not Tall/Alargado) */
   .featured-flavors-grid,
   .flavors-catalog-grid,
   .premium-boxes-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.65rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.15rem;
     max-width: 100%;
     margin: 0;
   }
@@ -3993,131 +3994,134 @@ a {
     margin-bottom: 2rem;
   }
 
-  /* Compact Product Cards for 2-Column Mobile Grid */
   .flavor-editorial-card,
   .wireframe-product-card {
-    border-radius: 12px;
+    border-radius: 16px;
   }
   .flavor-card-media,
   .card-image-box {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
   }
   .flavor-tag-pill,
   .card-badge-pill {
-    top: 6px;
-    left: 6px;
-    font-size: 0.58rem;
-    padding: 0.18rem 0.5rem;
-    max-width: calc(100% - 12px);
+    top: 10px;
+    left: 10px;
+    font-size: 0.75rem;
+    padding: 0.28rem 0.75rem;
+    max-width: calc(100% - 20px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .flavor-card-body,
   .card-content-box {
-    padding: 0.65rem;
+    padding: 1rem 1.05rem;
   }
   .flavor-card-title,
   .card-title-text {
-    font-size: 0.88rem;
-    margin-bottom: 0.2rem;
-    line-height: 1.2;
+    font-size: 1.2rem;
+    margin-bottom: 0.35rem;
+    line-height: 1.25;
   }
   .flavor-card-desc,
   .card-desc-snippet {
-    font-size: 0.72rem;
-    line-height: 1.35;
-    margin-bottom: 0.5rem;
+    font-size: 0.92rem;
+    line-height: 1.48;
+    margin-bottom: 0.85rem;
     -webkit-line-clamp: 2;
   }
   .flavor-card-footer,
   .card-price-action-row {
-    gap: 0.35rem;
-    padding-top: 0.45rem;
+    gap: 0.65rem;
+    padding-top: 0.75rem;
   }
   .card-footer-top-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.35rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
   }
   .flavor-card-price,
   .card-price-amount {
-    font-size: 0.96rem;
+    font-size: 1.3rem;
     line-height: 1.15;
   }
   .card-top-actions {
-    width: 100%;
+    width: auto;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.45rem;
   }
   .card-btn-pill-primary {
-    flex: 1;
-    padding: 0.38rem 0.45rem;
-    font-size: 0.72rem;
-    gap: 0.28rem;
-    height: 30px;
+    flex: initial;
+    padding: 0.5rem 1.05rem;
+    font-size: 0.88rem;
+    gap: 0.4rem;
+    min-height: 40px;
+    height: auto;
   }
   .flavor-card-btn,
   .card-circle-action-btn {
-    width: 30px;
-    height: 30px;
-    font-size: 0.72rem;
+    width: 40px;
+    height: 40px;
+    font-size: 0.88rem;
   }
   .card-btn-build-box-secondary {
     width: 100%;
-    padding: 0.32rem 0.4rem;
-    font-size: 0.68rem;
-    gap: 0.28rem;
-    height: 28px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.86rem;
+    gap: 0.45rem;
+    min-height: 42px;
+    height: auto;
   }
   .build-box-label-full {
-    display: none;
+    display: inline;
   }
   .build-box-label-short {
-    display: inline;
+    display: none;
   }
 
   /* Story / Sobre Nosotros Cards Fixed Layout */
   .story-wireframe-grid {
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 1.15rem;
+    margin-bottom: 1.75rem;
   }
   .story-wireframe-card {
-    padding: 1.25rem 1.1rem;
+    padding: 1.35rem 1.2rem;
     border-radius: var(--radius-md);
   }
   .story-card-top {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.45rem;
-    margin-bottom: 0.6rem;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
   }
   .story-card-title {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 0;
     line-height: 1.2;
   }
   .story-card-quote {
-    font-size: 0.85rem;
-    line-height: 1.55;
-    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
   }
   .story-card-media {
-    padding: 1rem 0.75rem;
-    min-height: 70px;
+    padding: 1.15rem 0.85rem;
+    min-height: 80px;
   }
   .story-media-placeholder {
-    font-size: 0.76rem;
-    padding: 0.45rem 0.85rem;
+    font-size: 0.86rem;
+    padding: 0.5rem 1rem;
   }
   .story-footer-action-wrap .btn-solid-primary {
     width: 100%;
-    padding: 0.8rem 1rem;
-    font-size: 0.8rem;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.92rem;
     white-space: normal;
     text-align: center;
-    line-height: 1.3;
+    line-height: 1.35;
+    min-height: 48px;
   }
 
   /* Catalog Header, Search & Filter Pills */
@@ -4161,8 +4165,8 @@ a {
   .filter-pill-btn {
     flex-shrink: 0;
     white-space: nowrap;
-    padding: 0.45rem 0.85rem;
-    font-size: 0.76rem;
+    padding: 0.55rem 1.05rem;
+    font-size: 0.88rem;
   }
 
   /* Contrast Banner & Custom Box CTA Banner */
@@ -4170,19 +4174,19 @@ a {
   .custom-box-builder-cta-banner {
     flex-direction: column;
     text-align: center;
-    padding: 1.5rem 1.15rem;
-    gap: 1.15rem;
+    padding: 1.75rem 1.25rem;
+    gap: 1.25rem;
     border-radius: var(--radius-md);
   }
   .contrast-banner-title,
   .builder-cta-text h3 {
-    font-size: 1.3rem;
+    font-size: 1.45rem;
     line-height: 1.22;
   }
   .contrast-banner-desc,
   .builder-cta-text p {
-    font-size: 0.84rem;
-    line-height: 1.45;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
   .contrast-action-group {
     width: 100%;
@@ -4191,8 +4195,9 @@ a {
   .btn-solid-primary-inverse {
     width: 100%;
     justify-content: center;
-    font-size: 0.86rem;
-    padding: 0.8rem 1.25rem;
+    font-size: 0.95rem;
+    padding: 0.9rem 1.25rem;
+    min-height: 48px;
   }
 
   /* Modals Common Mobile Frame */
@@ -4448,16 +4453,16 @@ a {
     max-width: 100% !important;
   }
   .footer-column-heading {
-    font-size: 0.78rem;
-    margin-bottom: 0.65rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
   }
   .footer-links-list {
-    gap: 0.45rem;
-    font-size: 0.78rem;
+    gap: 0.55rem;
+    font-size: 0.9rem;
   }
   .footer-contact-items {
-    font-size: 0.76rem;
-    gap: 0.5rem;
+    font-size: 0.88rem;
+    gap: 0.6rem;
     word-break: break-word;
   }
   .footer-bottom-bar {
