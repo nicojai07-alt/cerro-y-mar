@@ -3906,17 +3906,34 @@ a {
     gap: 0.35rem;
   }
 
+  /* Mobile Drawer Readability */
+  .mobile-nav-brand-text strong {
+    font-size: 1.15rem;
+  }
+  .mobile-nav-brand-text span {
+    font-size: 0.85rem;
+  }
+  .nav-link-info strong {
+    font-size: 1.05rem;
+  }
+  .nav-link-info span {
+    font-size: 0.88rem;
+  }
+  .mobile-nav-wa-btn {
+    font-size: 1.02rem;
+  }
+
   /* Hero Section Readable & Balanced */
   .hero-editorial-grid {
     gap: 1.5rem;
   }
   .editorial-eyebrow {
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
+    font-size: 0.86rem;
+    letter-spacing: 0.08em;
     margin-bottom: 0.55rem;
   }
   .hero-headline {
-    font-size: clamp(1.8rem, 6.8vw, 2.25rem);
+    font-size: clamp(1.9rem, 7vw, 2.35rem);
     line-height: 1.18;
     margin-bottom: 0.85rem;
   }
@@ -3924,23 +3941,23 @@ a {
     display: none;
   }
   .hero-subtext {
-    font-size: 0.98rem;
-    line-height: 1.55;
+    font-size: 1.02rem;
+    line-height: 1.58;
     margin-bottom: 1.35rem;
   }
   .hero-actions-group {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    gap: 0.7rem;
     width: 100%;
   }
   .hero-actions-group .btn-solid-primary,
   .hero-actions-group .btn-outline-primary {
     width: 100%;
-    padding: 0.9rem 1.2rem;
-    font-size: 0.95rem;
+    padding: 0.95rem 1.25rem;
+    font-size: 1rem;
     gap: 0.55rem;
-    min-height: 48px;
+    min-height: 50px;
   }
   .editorial-card-wrapper {
     padding: 0.75rem;
@@ -3949,14 +3966,14 @@ a {
     border-radius: var(--radius-md);
   }
   .editorial-main-image {
-    height: 220px;
+    height: 230px;
     border-radius: var(--radius-sm);
   }
   .editorial-badge {
     top: 1.15rem;
     left: 1.15rem;
-    font-size: 0.75rem;
-    padding: 0.3rem 0.75rem;
+    font-size: 0.82rem;
+    padding: 0.35rem 0.85rem;
   }
 
   /* Section Titles */
@@ -3966,27 +3983,27 @@ a {
   .section-editorial-title,
   .catalog-section-title,
   .story-section-heading {
-    font-size: clamp(1.65rem, 5.5vw, 2rem);
+    font-size: clamp(1.7rem, 5.8vw, 2.05rem);
     letter-spacing: -0.02em;
     line-height: 1.2;
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.5rem;
   }
   .section-editorial-subtitle,
   .catalog-section-desc,
   .story-section-lead {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.52;
   }
   .story-section-header {
     margin-bottom: 1.75rem;
   }
 
-  /* 1-Column Readable Product Cards with Wide 16:10 Image (Not Tall/Alargado) */
+  /* Mobile Product Cards: ONLY Photo, Name & Price before clicking (Full Details on Tap/Modal) */
   .featured-flavors-grid,
   .flavors-catalog-grid,
   .premium-boxes-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.15rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
     max-width: 100%;
     margin: 0;
   }
@@ -3996,92 +4013,69 @@ a {
 
   .flavor-editorial-card,
   .wireframe-product-card {
-    border-radius: 16px;
+    border-radius: 14px;
   }
   .flavor-card-media,
   .card-image-box {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 1 / 1;
   }
   .flavor-tag-pill,
-  .card-badge-pill {
-    top: 10px;
-    left: 10px;
-    font-size: 0.75rem;
-    padding: 0.28rem 0.75rem;
-    max-width: calc(100% - 20px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .card-badge-pill,
+  .flavor-card-desc,
+  .card-desc-snippet {
+    display: none !important;
   }
   .flavor-card-body,
   .card-content-box {
-    padding: 1rem 1.05rem;
+    padding: 0.8rem 0.75rem;
+    justify-content: space-between;
   }
   .flavor-card-title,
   .card-title-text {
-    font-size: 1.2rem;
-    margin-bottom: 0.35rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.45rem;
     line-height: 1.25;
-  }
-  .flavor-card-desc,
-  .card-desc-snippet {
-    font-size: 0.92rem;
-    line-height: 1.48;
-    margin-bottom: 0.85rem;
-    -webkit-line-clamp: 2;
   }
   .flavor-card-footer,
   .card-price-action-row {
-    gap: 0.65rem;
-    padding-top: 0.75rem;
+    gap: 0.45rem;
+    padding-top: 0.55rem;
   }
   .card-footer-top-row {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: 0.35rem;
   }
   .flavor-card-price,
   .card-price-amount {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     line-height: 1.15;
   }
   .card-top-actions {
     width: auto;
     display: flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.3rem;
   }
   .card-btn-pill-primary {
-    flex: initial;
-    padding: 0.5rem 1.05rem;
-    font-size: 0.88rem;
-    gap: 0.4rem;
-    min-height: 40px;
-    height: auto;
+    display: none;
   }
   .flavor-card-btn,
   .card-circle-action-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 0.88rem;
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
   }
   .card-btn-build-box-secondary {
-    width: 100%;
-    padding: 0.55rem 0.85rem;
-    font-size: 0.86rem;
-    gap: 0.45rem;
-    min-height: 42px;
-    height: auto;
-  }
-  .build-box-label-full {
-    display: inline;
-  }
-  .build-box-label-short {
     display: none;
   }
 
   /* Story / Sobre Nosotros Cards Fixed Layout */
+  .story-eyebrow {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+  }
   .story-wireframe-grid {
     gap: 1.15rem;
     margin-bottom: 1.75rem;
@@ -4096,32 +4090,35 @@ a {
     gap: 0.5rem;
     margin-bottom: 0.75rem;
   }
+  .story-card-tag {
+    font-size: 0.82rem;
+  }
   .story-card-title {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     margin-bottom: 0;
     line-height: 1.2;
   }
   .story-card-quote {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.62;
+    margin-bottom: 1.15rem;
   }
   .story-card-media {
     padding: 1.15rem 0.85rem;
     min-height: 80px;
   }
   .story-media-placeholder {
-    font-size: 0.86rem;
-    padding: 0.5rem 1rem;
+    font-size: 0.92rem;
+    padding: 0.55rem 1rem;
   }
   .story-footer-action-wrap .btn-solid-primary {
     width: 100%;
-    padding: 0.9rem 1.1rem;
-    font-size: 0.92rem;
+    padding: 0.95rem 1.15rem;
+    font-size: 0.98rem;
     white-space: normal;
     text-align: center;
     line-height: 1.35;
-    min-height: 48px;
+    min-height: 50px;
   }
 
   /* Catalog Header, Search & Filter Pills */
@@ -4135,26 +4132,30 @@ a {
     width: 100%;
     justify-content: space-between;
   }
+  .sort-label {
+    font-size: 0.95rem;
+  }
   .catalog-sort-select {
     flex: 1;
-    max-width: 210px;
-    padding: 0.45rem 0.85rem;
+    max-width: 220px;
+    padding: 0.55rem 0.95rem;
+    font-size: 0.95rem;
   }
   .catalog-search-bar-wrap {
-    margin-bottom: 0.85rem;
+    margin-bottom: 1rem;
   }
   .catalog-search-input {
-    padding: 0.65rem 1rem 0.65rem 2.35rem;
+    padding: 0.75rem 1.1rem 0.75rem 2.5rem;
   }
   .catalog-filter-tabs-wrap {
-    margin-bottom: 1.15rem;
+    margin-bottom: 1.25rem;
   }
   .catalog-pills-nav {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    gap: 0.45rem;
+    gap: 0.5rem;
     margin: 0 -0.85rem;
     padding: 4px 0.85rem 8px;
     scrollbar-width: none;
@@ -4165,8 +4166,14 @@ a {
   .filter-pill-btn {
     flex-shrink: 0;
     white-space: nowrap;
-    padding: 0.55rem 1.05rem;
-    font-size: 0.88rem;
+    padding: 0.6rem 1.15rem;
+    font-size: 0.95rem;
+  }
+  .filter-feedback-row,
+  .btn-reset-filters {
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   /* Contrast Banner & Custom Box CTA Banner */
@@ -4174,19 +4181,23 @@ a {
   .custom-box-builder-cta-banner {
     flex-direction: column;
     text-align: center;
-    padding: 1.75rem 1.25rem;
-    gap: 1.25rem;
+    padding: 1.85rem 1.25rem;
+    gap: 1.35rem;
     border-radius: var(--radius-md);
+  }
+  .builder-cta-badge {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
   }
   .contrast-banner-title,
   .builder-cta-text h3 {
-    font-size: 1.45rem;
+    font-size: 1.55rem;
     line-height: 1.22;
   }
   .contrast-banner-desc,
   .builder-cta-text p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.55;
   }
   .contrast-action-group {
     width: 100%;
@@ -4195,9 +4206,9 @@ a {
   .btn-solid-primary-inverse {
     width: 100%;
     justify-content: center;
-    font-size: 0.95rem;
-    padding: 0.9rem 1.25rem;
-    min-height: 48px;
+    font-size: 1rem;
+    padding: 0.95rem 1.25rem;
+    min-height: 50px;
   }
 
   /* Modals Common Mobile Frame */
@@ -4216,95 +4227,106 @@ a {
     width: 94% !important;
     max-width: 94% !important;
     max-height: 90dvh !important;
-    padding: 1.35rem 1rem !important;
+    padding: 1.5rem 1.1rem !important;
     border-radius: var(--radius-md) !important;
   }
 
   .modal-close-btn,
   .close-modal-btn {
-    top: 0.65rem !important;
-    right: 0.65rem !important;
-    width: 32px !important;
-    height: 32px !important;
-    font-size: 1.15rem !important;
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1.25rem !important;
   }
 
-  /* Product Detail Modal Mobile */
+  /* Product Detail Modal Mobile (Full Info + Description Shown Here) */
   .wireframe-breadcrumbs {
     flex-wrap: wrap;
-    font-size: 0.72rem;
-    margin-bottom: 1rem;
-    padding-right: 2rem;
+    font-size: 0.88rem;
+    margin-bottom: 1.1rem;
+    padding-right: 2.5rem;
   }
   .product-main-row {
-    gap: 1.15rem;
-    margin-bottom: 1.25rem;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
   }
   .product-gallery-col {
     flex-direction: column-reverse;
-    gap: 0.6rem;
+    gap: 0.65rem;
   }
   .gallery-thumbs-list {
     flex-direction: row;
-    gap: 0.45rem;
+    gap: 0.5rem;
     overflow-x: auto;
     padding-bottom: 2px;
   }
   .gallery-thumb-item {
-    width: 46px;
-    height: 46px;
+    width: 52px;
+    height: 52px;
     flex-shrink: 0;
   }
   .gallery-main-view {
-    height: 210px;
+    height: 230px;
+  }
+  .detail-badge-pill {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.85rem;
   }
   .detail-product-name {
-    font-size: 1.45rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
   }
   .detail-product-desc {
-    font-size: 0.84rem;
-    margin-bottom: 0.85rem;
-  }
-  .detail-price-line {
+    font-size: 1rem;
+    line-height: 1.58;
     margin-bottom: 1rem;
   }
+  .detail-price-line {
+    margin-bottom: 1.1rem;
+  }
   .detail-main-price {
-    font-size: 1.45rem;
+    font-size: 1.7rem;
+  }
+  .detail-price-sub {
+    font-size: 0.92rem;
   }
   .detail-cta-row {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.55rem;
-    margin-bottom: 1.15rem;
+    gap: 0.65rem;
+    margin-bottom: 1.25rem;
   }
   .qty-stepper-box {
     justify-content: center;
-    height: 42px;
+    height: 46px;
+  }
+  .stepper-val {
+    font-size: 1.1rem;
   }
   .btn-add-cart-solid {
     width: 100%;
-    height: 44px;
-    font-size: 0.88rem;
+    height: 48px;
+    font-size: 1rem;
     padding: 0 1rem;
   }
   .btn-build-box-detail {
     width: 100%;
-    height: 42px;
+    height: 46px;
     justify-content: center;
-    font-size: 0.84rem;
+    font-size: 0.95rem;
     padding: 0.5rem;
   }
   .product-feature-badges-row {
     justify-content: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
   }
   .feature-badge-item {
-    font-size: 0.68rem;
-    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
   }
   .product-tabs-nav {
-    gap: 0.85rem;
+    gap: 1rem;
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none;
@@ -4313,63 +4335,104 @@ a {
     display: none;
   }
   .tab-btn {
-    font-size: 0.78rem;
+    font-size: 0.95rem;
     flex-shrink: 0;
+  }
+  .tab-content {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+  .related-heading {
+    font-size: 1.25rem;
+  }
+  .related-products-grid h4 {
+    font-size: 0.98rem !important;
+  }
+  .related-products-grid strong {
+    font-size: 1.05rem !important;
   }
 
   /* Custom Box Builder Modal Mobile */
   .box-builder-header {
-    margin-bottom: 1rem;
+    margin-bottom: 1.15rem;
+  }
+  .builder-badge {
+    font-size: 0.85rem;
   }
   .builder-title {
-    font-size: 1.35rem;
+    font-size: 1.55rem;
   }
   .builder-subtitle {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
+  }
+  .step-title {
+    font-size: 1.12rem;
   }
   .box-size-selector-grid {
     grid-template-columns: 1fr;
-    gap: 0.55rem;
+    gap: 0.6rem;
   }
   .box-size-card {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem 0.9rem;
+    padding: 0.85rem 1rem;
     text-align: left;
+  }
+  .box-size-name,
+  .box-size-price {
+    font-size: 1.15rem;
   }
   .box-size-desc {
     margin: 0;
+    font-size: 0.88rem;
   }
   .slots-header-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.35rem;
+    gap: 0.4rem;
+  }
+  .box-slots-status {
+    font-size: 0.92rem;
+  }
+  .slot-item-chip,
+  .slot-empty-placeholder {
+    font-size: 0.88rem;
   }
   .flavors-picker-list {
     grid-template-columns: 1fr;
-    gap: 0.45rem;
-    max-height: 240px;
+    gap: 0.55rem;
+    max-height: 260px;
     overflow-y: auto;
+  }
+  .flavor-picker-name {
+    font-size: 0.98rem;
+  }
+  .flavor-picker-tag {
+    font-size: 0.85rem;
   }
   .box-builder-footer {
     flex-direction: column;
     align-items: stretch;
     text-align: center;
-    gap: 0.65rem;
+    gap: 0.75rem;
+  }
+  .builder-total-label {
+    font-size: 0.92rem;
   }
   .btn-add-custom-box {
     max-width: 100%;
     width: 100%;
-    font-size: 0.88rem;
-    padding: 0.8rem;
+    font-size: 1rem;
+    padding: 0.9rem;
+    min-height: 48px;
   }
 
   /* Story / Nosotros Modal Mobile */
   .institutional-nav-tabs {
     overflow-x: auto;
     white-space: nowrap;
-    gap: 0.45rem;
+    gap: 0.5rem;
     scrollbar-width: none;
   }
   .institutional-nav-tabs::-webkit-scrollbar {
@@ -4377,31 +4440,69 @@ a {
   }
   .inst-tab-btn {
     flex-shrink: 0;
-    font-size: 0.76rem;
-    padding: 0.45rem 0.8rem;
+    font-size: 0.9rem;
+    padding: 0.55rem 0.95rem;
+  }
+  .story-modal-tag {
+    font-size: 0.86rem;
   }
   .story-modal-content h2 {
-    font-size: 1.45rem;
+    font-size: 1.6rem;
   }
-  .story-modal-content p {
-    font-size: 0.88rem;
+  .story-modal-content p,
+  .mission-vision-card p,
+  .projection-list li,
+  .faq-item p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+  .pillar-item strong {
+    font-size: 1.05rem;
+  }
+  .pillar-item span {
+    font-size: 0.92rem;
   }
 
-  /* Contact Modal Mobile */
+  /* Auth & Contact Modal Mobile */
+  .auth-tab-btn,
+  .btn-google-auth,
+  .btn-solid-primary-block {
+    font-size: 1rem;
+  }
+  .form-group label {
+    font-size: 0.92rem;
+  }
+  .auth-divider span {
+    font-size: 0.88rem;
+  }
   .horizontal-contact-card {
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
+  .contact-modal-tag {
+    font-size: 0.86rem;
+  }
   .contact-modal-title {
-    font-size: 1.5rem;
+    font-size: 1.65rem;
+  }
+  .contact-modal-desc,
+  .contact-info-value {
+    font-size: 0.98rem;
+  }
+  .contact-modal-badge,
+  .contact-info-label,
+  .socials-label,
+  .contact-social-pill {
+    font-size: 0.88rem;
   }
   .btn-whatsapp-contact {
     width: 100%;
     justify-content: center;
-    font-size: 0.88rem;
+    font-size: 1rem;
+    min-height: 48px;
   }
 
-  /* Cart Drawer Mobile */
+  /* Cart Drawer & Confirmation Mobile */
   .cart-drawer-panel {
     max-width: 100%;
     height: 100dvh;
@@ -4413,26 +4514,65 @@ a {
     padding: 1rem;
   }
   .cart-item-wireframe-row {
-    padding: 0.7rem;
-    gap: 0.7rem;
+    padding: 0.8rem;
+    gap: 0.75rem;
   }
   .cart-item-thumb {
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
+  }
+  .cart-item-name {
+    font-size: 1.02rem;
+  }
+  .cart-item-unit-label {
+    font-size: 0.88rem;
+  }
+  .cart-item-total-price {
+    font-size: 1.08rem;
+  }
+  .calc-row {
+    font-size: 1rem;
+  }
+  .total-calc-row {
+    font-size: 1.3rem;
+  }
+  .btn-checkout-primary-wireframe,
+  .btn-continue-shopping {
+    font-size: 1rem;
+  }
+  .btn-text-danger {
+    font-size: 0.95rem;
   }
   .delivery-options-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .radio-card-content strong {
+    font-size: 0.95rem;
+  }
+  .radio-card-content span {
+    font-size: 0.85rem;
+  }
+  .node-label {
+    font-size: 0.85rem;
+  }
+  .confirmation-title {
+    font-size: 1.65rem;
+  }
+  .confirmation-subtitle,
+  .summary-card-items-table,
+  .confirmation-delivery-info {
+    font-size: 0.95rem;
   }
 
   /* Footer Mobile 2-Column Organized Layout */
   .site-footer {
-    padding-top: 2.5rem;
+    padding-top: 2.75rem;
   }
   .footer-main-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 1rem;
-    padding-bottom: 2rem;
+    gap: 1.75rem 1rem;
+    padding-bottom: 2.25rem;
     text-align: left;
   }
   .footer-col-brand,
@@ -4449,30 +4589,41 @@ a {
   .footer-brand img,
   .footer-logo-wrap img,
   .footer-logo-container img {
-    width: 240px !important;
+    width: 220px !important;
     max-width: 100% !important;
   }
   .footer-column-heading {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-bottom: 0.75rem;
   }
   .footer-links-list {
-    gap: 0.55rem;
-    font-size: 0.9rem;
+    gap: 0.65rem;
+    font-size: 0.98rem;
+  }
+  .footer-contact-col {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(237, 231, 221, 0.15);
+    padding-top: 1.35rem;
+    text-align: center;
+    align-items: center;
   }
   .footer-contact-items {
-    font-size: 0.88rem;
-    gap: 0.6rem;
+    align-items: center;
+    font-size: 0.95rem;
+    gap: 0.65rem;
     word-break: break-word;
   }
+  .footer-contact-items p {
+    justify-content: center;
+  }
   .footer-bottom-bar {
-    padding: 1.15rem 0;
+    padding: 1.25rem 0;
   }
   .footer-bottom-flex {
     flex-direction: column;
     text-align: center;
-    gap: 0.35rem;
-    font-size: 0.72rem;
+    gap: 0.45rem;
+    font-size: 0.85rem;
   }
 }
 
