@@ -414,6 +414,13 @@
       contactModal: document.getElementById("contactModal"),
       closeContactModalBtn: document.getElementById("closeContactModalBtn"),
 
+      // Mobile Navigation Drawer
+      mobileMenuToggleBtn: document.getElementById("mobileMenuToggleBtn"),
+      mobileNavDrawer: document.getElementById("mobileNavDrawer"),
+      closeMobileNavBtn: document.getElementById("closeMobileNavBtn"),
+      mobileNavBackdrop: document.getElementById("mobileNavBackdrop"),
+      mobileSearchInput: document.getElementById("mobileSearchInput"),
+
       // Toasts
       toastContainer: document.getElementById("toastContainer")
     };
@@ -1568,6 +1575,31 @@
     }
   };
 
+  // ================= MOBILE NAVIGATION DRAWER =================
+  const openMobileMenu = () => {
+    if (DOM.mobileNavDrawer) {
+      DOM.mobileNavDrawer.classList.add("open");
+      DOM.mobileNavDrawer.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+  };
+
+  const closeMobileMenu = () => {
+    if (DOM.mobileNavDrawer) {
+      DOM.mobileNavDrawer.classList.remove("open");
+      DOM.mobileNavDrawer.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+  };
+
+  const toggleMobileMenu = () => {
+    if (DOM.mobileNavDrawer && DOM.mobileNavDrawer.classList.contains("open")) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  };
+
   // ================= EVENT LISTENERS =================
   const setupEvents = () => {
     let isScrolled = false;
@@ -1722,6 +1754,32 @@
       });
     }
 
+    // Mobile Navigation Drawer Events
+    if (DOM.mobileMenuToggleBtn) {
+      DOM.mobileMenuToggleBtn.addEventListener("click", toggleMobileMenu);
+    }
+    if (DOM.closeMobileNavBtn) {
+      DOM.closeMobileNavBtn.addEventListener("click", closeMobileMenu);
+    }
+    if (DOM.mobileNavBackdrop) {
+      DOM.mobileNavBackdrop.addEventListener("click", closeMobileMenu);
+    }
+    if (DOM.mobileSearchInput) {
+      DOM.mobileSearchInput.addEventListener("input", (e) => {
+        state.searchQuery = e.target.value;
+        if (DOM.searchInput) DOM.searchInput.value = state.searchQuery;
+        if (DOM.catalogSearchInput) DOM.catalogSearchInput.value = state.searchQuery;
+        applyFilters();
+      });
+      DOM.mobileSearchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          closeMobileMenu();
+          const cat = document.getElementById("catalogo");
+          if (cat) cat.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
+
     // Keyboard ESC handler
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
@@ -1731,6 +1789,7 @@
         closeCustomBoxModal();
         closeStoryModal();
         closeContactModal();
+        closeMobileMenu();
         closeSearchDropdown();
         closeOrderSuccessModal();
       }
@@ -1824,6 +1883,11 @@
     // Contact Modal
     openContactModal,
     closeContactModal,
+
+    // Mobile Navigation Drawer
+    openMobileMenu,
+    closeMobileMenu,
+    toggleMobileMenu,
 
     // Live Search API
     renderSearchSuggestions,

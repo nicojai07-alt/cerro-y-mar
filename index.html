@@ -96,9 +96,118 @@
           <span id="cartTotalHeader" class="cart-header-val">$ 0</span>
         </button>
 
+        <!-- Mobile Menu Toggle Button (Para teléfonos y tablets) -->
+        <button id="mobileMenuToggleBtn" class="mobile-menu-toggle-btn" aria-label="Abrir menú de navegación" onclick="app.toggleMobileMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
       </div>
     </div>
   </header>
+
+  <!-- ================= MOBILE NAVIGATION DRAWER ================= -->
+  <div id="mobileNavDrawer" class="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop" onclick="app.closeMobileMenu()"></div>
+    <div class="mobile-nav-panel">
+      <div class="mobile-nav-top">
+        <div class="mobile-nav-brand">
+          <img src="assets/logo-emblem.png" alt="Emblema Cerro y Mar" class="mobile-nav-logo-emblem">
+          <div class="mobile-nav-brand-text">
+            <strong>Cerro y Mar</strong>
+            <span>Alfajores de Autor</span>
+          </div>
+        </div>
+        <button class="mobile-nav-close-btn" id="closeMobileNavBtn" onclick="app.closeMobileMenu()" aria-label="Cerrar menú">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Search Box -->
+      <div class="mobile-nav-search-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="mobileSearchInput" placeholder="Buscar sabor (ej: Calafate, Dubai)..." autocomplete="off">
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="mobile-nav-menu-list">
+        <a href="#catalogo" class="mobile-nav-link" onclick="app.closeMobileMenu()">
+          <div class="nav-link-icon-wrap"><i class="fa-solid fa-cookie-bite"></i></div>
+          <div class="nav-link-info">
+            <strong>Catálogo de Sabores</strong>
+            <span>Las 14 creaciones de autor</span>
+          </div>
+          <i class="fa-solid fa-chevron-right nav-arrow"></i>
+        </a>
+
+        <a href="#cajas-premium" class="mobile-nav-link" onclick="app.closeMobileMenu()">
+          <div class="nav-link-icon-wrap"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <div class="nav-link-info">
+            <strong>Cajas Premium</strong>
+            <span>Packs y colecciones patagónicas</span>
+          </div>
+          <i class="fa-solid fa-chevron-right nav-arrow"></i>
+        </a>
+
+        <a href="javascript:void(0)" class="mobile-nav-link highlight" onclick="app.closeMobileMenu(); app.openCustomBoxModal();">
+          <div class="nav-link-icon-wrap"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div class="nav-link-info">
+            <strong>Armá tu Caja a Medida</strong>
+            <span>Elegí tus sabores favoritos</span>
+          </div>
+          <i class="fa-solid fa-chevron-right nav-arrow"></i>
+        </a>
+
+        <a href="#nosotros" class="mobile-nav-link" onclick="app.closeMobileMenu()">
+          <div class="nav-link-icon-wrap"><i class="fa-solid fa-heart"></i></div>
+          <div class="nav-link-info">
+            <strong>Nuestra Historia</strong>
+            <span>Tradición artesanal y familia</span>
+          </div>
+          <i class="fa-solid fa-chevron-right nav-arrow"></i>
+        </a>
+
+        <a href="javascript:void(0)" class="mobile-nav-link" onclick="app.closeMobileMenu(); app.openStoryTab('faqs');">
+          <div class="nav-link-icon-wrap"><i class="fa-solid fa-circle-question"></i></div>
+          <div class="nav-link-info">
+            <strong>Preguntas Frecuentes</strong>
+            <span>Envíos, conservación y pagos</span>
+          </div>
+          <i class="fa-solid fa-chevron-right nav-arrow"></i>
+        </a>
+
+        <a href="javascript:void(0)" class="mobile-nav-link" onclick="app.closeMobileMenu(); app.openContactModal();">
+          <div class="nav-link-icon-wrap"><i class="fa-solid fa-envelope"></i></div>
+          <div class="nav-link-info">
+            <strong>Contacto Directo</strong>
+            <span>Horarios y atención personalizada</span>
+          </div>
+          <i class="fa-solid fa-chevron-right nav-arrow"></i>
+        </a>
+
+        <a href="javascript:void(0)" class="mobile-nav-link" onclick="app.closeMobileMenu(); app.openAuthModal();">
+          <div class="nav-link-icon-wrap"><i class="fa-regular fa-user"></i></div>
+          <div class="nav-link-info">
+            <strong>Mi Cuenta</strong>
+            <span>Iniciar sesión o registrarse</span>
+          </div>
+          <i class="fa-solid fa-chevron-right nav-arrow"></i>
+        </a>
+      </nav>
+
+      <!-- Bottom Quick Actions -->
+      <div class="mobile-nav-bottom-actions">
+        <a href="https://wa.me/5492975928775?text=Hola%20Cerro%20y%20Mar,%20quiero%20hacer%20un%20pedido!" target="_blank" rel="noopener" class="mobile-nav-wa-btn">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Pedir por WhatsApp</span>
+        </a>
+        <div class="mobile-nav-social-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com/cerroymar.crd" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ================= HERO SECTION (WIREFRAME HOME) ================= -->
   <section class="hero-editorial-section" id="inicio">
@@ -253,6 +362,19 @@
             <option value="name-asc">Nombre (A - Z)</option>
           </select>
         </div>
+      </div>
+
+      <!-- Mobile & Quick Catalog Search Bar -->
+      <div class="catalog-search-bar-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input 
+          type="text" 
+          id="catalogSearchInput" 
+          class="catalog-search-input" 
+          placeholder="Buscar sabor o ingrediente (ej: Calafate, Pistacho, Dulce de Leche)..." 
+          autocomplete="off"
+          aria-label="Buscar productos en el catálogo"
+        >
       </div>
 
       <!-- Filter Pill Tabs (All, Clásicos, Patagónicos, Especiales, Argentos, Veganos, Gluten Free, Plant Based) -->
