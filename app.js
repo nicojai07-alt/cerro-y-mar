@@ -504,7 +504,8 @@
             </div>
             <button class="card-btn-build-box-secondary" title="Armar caja con este alfajor" onclick="event.stopPropagation(); app.startBoxWithFlavor('${p.id}')">
               <i class="fa-solid fa-boxes-stacked"></i>
-              <span>Armar caja con este alfajor</span>
+              <span class="build-box-label-full">Armar caja con este alfajor</span>
+              <span class="build-box-label-short">Armar caja</span>
             </button>
           </div>
         </div>
@@ -538,7 +539,7 @@
               <div class="card-top-actions">
                 <button class="card-btn-pill-primary" title="${p.category === 'combos' ? 'Comprar caja' : 'Comprar'}" onclick="event.stopPropagation(); app.quickAddToCart('${p.id}')">
                   <i class="fa-solid fa-bag-shopping"></i>
-                  <span>${p.category === 'combos' ? 'Comprar caja' : 'Comprar'}</span>
+                  <span>Comprar</span>
                 </button>
                 <button class="card-circle-action-btn" title="Ver detalle" onclick="event.stopPropagation(); app.openProductModal('${p.id}')">
                   <i class="fa-solid fa-arrow-right"></i>
@@ -548,7 +549,8 @@
             ${p.category !== 'combos' ? `
             <button class="card-btn-build-box-secondary" title="Armar caja con este alfajor" onclick="event.stopPropagation(); app.startBoxWithFlavor('${p.id}')">
               <i class="fa-solid fa-boxes-stacked"></i>
-              <span>Armar caja con este alfajor</span>
+              <span class="build-box-label-full">Armar caja con este alfajor</span>
+              <span class="build-box-label-short">Armar caja</span>
             </button>
             ` : ''}
           </div>
