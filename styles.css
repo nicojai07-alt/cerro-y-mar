@@ -3794,8 +3794,8 @@ a {
   }
 }
 
-/* Tablets Portrait & Large Phones (<= 860px) */
-@media (max-width: 860px) {
+/* Tablets Portrait & Large Phones (<= 860px, Portrait, or Touch Devices) */
+@media (max-width: 860px), (orientation: portrait), (hover: none) and (pointer: coarse) {
   .main-navigation,
   .header-search-wrap {
     display: none !important;
@@ -3825,8 +3825,8 @@ a {
   }
 }
 
-/* Mobile Phones (<= 768px) */
-@media (max-width: 768px) {
+/* Mobile Phones (<= 768px, Portrait Orientation, OR any Touch Phone even in 980px Desktop Mode) */
+@media (max-width: 768px), (orientation: portrait), (hover: none) and (pointer: coarse) {
   /* Prevent iOS zoom on form inputs */
   input, select, textarea {
     font-size: 16px !important;
